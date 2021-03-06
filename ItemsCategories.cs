@@ -231,5 +231,15 @@ namespace UIF
 
 			new itemList(list).ShowDialog();
 		}
-	}
+
+        private void OtherGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void VehiclesGroup_Enter(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

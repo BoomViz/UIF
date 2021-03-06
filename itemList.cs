@@ -186,5 +186,35 @@ namespace UIF
 
 			updateItemList();
 		}
-	}
+
+        private void ItemCapacityLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ResultsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BodyDamageLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BuildingsDamageLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ItemType2Label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InfoGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
