@@ -137,7 +137,7 @@ namespace UIF
 
 		private void FldrComboBox_TextUpdate(object sender, EventArgs e)
 		{
-			FldrComboBox.Text = "Вход отключен! [Выберите вариант или создайте еще один]";
+			FldrComboBox.Text = "Ввод отключен! [Выберите вариант или создайте еще один]";
 			FldrComboBox.SelectedIndex = -1;
 			CurrentFolderPath = null;
 		}

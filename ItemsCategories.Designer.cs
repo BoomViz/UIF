@@ -364,7 +364,7 @@
             // 
             // SuppressorsBtn
             // 
-            this.SuppressorsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.SuppressorsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.7F);
             this.SuppressorsBtn.Location = new System.Drawing.Point(188, 59);
             this.SuppressorsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.SuppressorsBtn.Name = "SuppressorsBtn";
