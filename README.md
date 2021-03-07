@@ -1,8 +1,8 @@
 <h1>UIF (<a href="https://store.steampowered.com/app/304930/Unturned/">Unturned</a> Id Finder)</h1>
-<h4>Program developed for game <a href="https://store.steampowered.com/app/304930/Unturned/">Unturned</a> for finding ids by name, category, etc. and get item information.</h4>
-<h4>Before using it, you need to delete all the downloaded mods and log in to the server.<h4>
+<h4>Программа разработана для игры <a href="https://store.steampowered.com/app/304930/Unturned/">Unturned</a> для поиска идентификаторов по имени, категории и т. д. и получения информации об элементе.</h4>
+<h4>Перед его использованием необходимо удалить все скачанные моды и зайти на на сервер..<h4>
 
-<h1>Author Contacts</h1>
+<h1>Контакты автора</h1>
 <h4>
 Telegram: <i><a href="https://t.me/YMO_4">@YMO_4</a></i>
 <br>
@@ -10,5 +10,5 @@ Discord: <i>YMO4#7441</i> (<i><a href="https://discord.gg/VhpM2ex">Server</a></i
 </h4>
 
 <h1>P.S.</h1>
-<h4>All modifications and pull requests are welcome.</h4>
-<h2><b>Good Luck! 😉</b></h2>
+<h4>Приветствуются все модификации и запросы на вытягивание.</h4>
+<h2><b>Удачи! 😉</b></h2>
