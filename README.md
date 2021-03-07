@@ -9,7 +9,8 @@ Discord: <i>YMO4#7441</i> (<i><a href="https://discord.gg/VhpM2ex">Server</a></i
 </h4>
 
 <h1>P.S.</h1>
-<h4>Русифицировал: <i><a href="hrrps://vk.com/boomviz">Алексей Цымбал</a></i>
+<h4>
+Русифицировал: <i><a href="hrrps://vk.com/boomviz">Алексей Цымбал</a></i>
 </h4>
 <h4>Приветствуются все модификации и предложения.</h4>
 <h2><b>Удачи! 😉</b></h2>
