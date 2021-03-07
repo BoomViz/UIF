@@ -19,7 +19,7 @@ namespace UIF
 		{
 			if (_items == null)
 			{
-				MessageBox.Show("Error in Item List.", "Error!");
+				MessageBox.Show("Ошибка в списке предметов.", "Ошибка!");
 				return;
 			}
 

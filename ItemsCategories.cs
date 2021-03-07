@@ -19,7 +19,7 @@ namespace UIF
 		{
 			if (path == null)
 			{
-				MessageBox.Show("folderPath is null!", "Error!");
+				MessageBox.Show("Путь к папке равен нулю!", "Ошибка!");
 				return;
 			}
 
@@ -238,6 +238,11 @@ namespace UIF
         }
 
         private void VehiclesGroup_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ItemsCategories_Load(object sender, EventArgs e)
         {
 
         }
