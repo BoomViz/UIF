@@ -6,6 +6,7 @@
 Telegram: <i><a href="https://t.me/YMO_4">@YMO_4</a></i>
 <br>
 Discord: <i>YMO4#7441</i> (<i><a href="https://discord.gg/VhpM2ex">Server</a></i>)
+<br>
 Русифицировал: <i><a href="https://vk.com/boomviz">Алексей Цымбал</a></i>
 </h4>
 
