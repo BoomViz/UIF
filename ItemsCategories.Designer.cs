@@ -32,6 +32,8 @@
             this.HelmetsBtn = new System.Windows.Forms.Button();
             this.ShirtsBtn = new System.Windows.Forms.Button();
             this.ArmorGroupBox = new System.Windows.Forms.GroupBox();
+            this.MasksBtn = new System.Windows.Forms.Button();
+            this.GlassesBtn = new System.Windows.Forms.Button();
             this.AllArmorBtn = new System.Windows.Forms.Button();
             this.VestsBtn = new System.Windows.Forms.Button();
             this.BackpacksBtn = new System.Windows.Forms.Button();
@@ -81,7 +83,7 @@
             // 
             // ShirtsBtn
             // 
-            this.ShirtsBtn.Location = new System.Drawing.Point(8, 59);
+            this.ShirtsBtn.Location = new System.Drawing.Point(8, 131);
             this.ShirtsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ShirtsBtn.Name = "ShirtsBtn";
             this.ShirtsBtn.Size = new System.Drawing.Size(176, 28);
@@ -93,6 +95,8 @@
             // 
             // ArmorGroupBox
             // 
+            this.ArmorGroupBox.Controls.Add(this.MasksBtn);
+            this.ArmorGroupBox.Controls.Add(this.GlassesBtn);
             this.ArmorGroupBox.Controls.Add(this.AllArmorBtn);
             this.ArmorGroupBox.Controls.Add(this.VestsBtn);
             this.ArmorGroupBox.Controls.Add(this.HelmetsBtn);
@@ -103,14 +107,40 @@
             this.ArmorGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.ArmorGroupBox.Name = "ArmorGroupBox";
             this.ArmorGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.ArmorGroupBox.Size = new System.Drawing.Size(192, 238);
+            this.ArmorGroupBox.Size = new System.Drawing.Size(192, 313);
             this.ArmorGroupBox.TabIndex = 3;
             this.ArmorGroupBox.TabStop = false;
             this.ArmorGroupBox.Text = "Armor";
             // 
+            // MasksBtn
+            // 
+            this.MasksBtn.Location = new System.Drawing.Point(8, 95);
+            this.MasksBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.MasksBtn.Name = "MasksBtn";
+            this.MasksBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.MasksBtn.Size = new System.Drawing.Size(176, 28);
+            this.MasksBtn.TabIndex = 7;
+            this.MasksBtn.TabStop = false;
+            this.MasksBtn.Text = "Masks";
+            this.MasksBtn.UseVisualStyleBackColor = true;
+            this.MasksBtn.Click += new System.EventHandler(this.MasksBtn_Click);
+            // 
+            // GlassesBtn
+            // 
+            this.GlassesBtn.Location = new System.Drawing.Point(8, 59);
+            this.GlassesBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.GlassesBtn.Name = "GlassesBtn";
+            this.GlassesBtn.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.GlassesBtn.Size = new System.Drawing.Size(176, 28);
+            this.GlassesBtn.TabIndex = 6;
+            this.GlassesBtn.TabStop = false;
+            this.GlassesBtn.Text = "Glasses";
+            this.GlassesBtn.UseVisualStyleBackColor = true;
+            this.GlassesBtn.Click += new System.EventHandler(this.GlassesBtn_Click);
+            // 
             // AllArmorBtn
             // 
-            this.AllArmorBtn.Location = new System.Drawing.Point(8, 202);
+            this.AllArmorBtn.Location = new System.Drawing.Point(8, 275);
             this.AllArmorBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AllArmorBtn.Name = "AllArmorBtn";
             this.AllArmorBtn.Size = new System.Drawing.Size(176, 28);
@@ -122,7 +152,7 @@
             // 
             // VestsBtn
             // 
-            this.VestsBtn.Location = new System.Drawing.Point(8, 95);
+            this.VestsBtn.Location = new System.Drawing.Point(8, 167);
             this.VestsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.VestsBtn.Name = "VestsBtn";
             this.VestsBtn.Size = new System.Drawing.Size(176, 28);
@@ -134,7 +164,7 @@
             // 
             // BackpacksBtn
             // 
-            this.BackpacksBtn.Location = new System.Drawing.Point(8, 166);
+            this.BackpacksBtn.Location = new System.Drawing.Point(8, 239);
             this.BackpacksBtn.Margin = new System.Windows.Forms.Padding(4);
             this.BackpacksBtn.Name = "BackpacksBtn";
             this.BackpacksBtn.Size = new System.Drawing.Size(176, 28);
@@ -146,7 +176,7 @@
             // 
             // PantsBtn
             // 
-            this.PantsBtn.Location = new System.Drawing.Point(8, 130);
+            this.PantsBtn.Location = new System.Drawing.Point(8, 203);
             this.PantsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.PantsBtn.Name = "PantsBtn";
             this.PantsBtn.Size = new System.Drawing.Size(176, 28);
@@ -167,7 +197,7 @@
             this.OtherGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.OtherGroupBox.Name = "OtherGroupBox";
             this.OtherGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.OtherGroupBox.Size = new System.Drawing.Size(203, 238);
+            this.OtherGroupBox.Size = new System.Drawing.Size(203, 313);
             this.OtherGroupBox.TabIndex = 1;
             this.OtherGroupBox.TabStop = false;
             this.OtherGroupBox.Text = "Other";
@@ -222,7 +252,7 @@
             // 
             // AllItemsBtn
             // 
-            this.AllItemsBtn.Location = new System.Drawing.Point(8, 202);
+            this.AllItemsBtn.Location = new System.Drawing.Point(8, 275);
             this.AllItemsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AllItemsBtn.Name = "AllItemsBtn";
             this.AllItemsBtn.Size = new System.Drawing.Size(185, 28);
@@ -254,7 +284,7 @@
             this.VehiclesGroup.Margin = new System.Windows.Forms.Padding(4);
             this.VehiclesGroup.Name = "VehiclesGroup";
             this.VehiclesGroup.Padding = new System.Windows.Forms.Padding(4);
-            this.VehiclesGroup.Size = new System.Drawing.Size(236, 238);
+            this.VehiclesGroup.Size = new System.Drawing.Size(236, 313);
             this.VehiclesGroup.TabIndex = 4;
             this.VehiclesGroup.TabStop = false;
             this.VehiclesGroup.Text = "Vehicles";
@@ -285,7 +315,7 @@
             // 
             // AllVehiclesBtn
             // 
-            this.AllVehiclesBtn.Location = new System.Drawing.Point(8, 202);
+            this.AllVehiclesBtn.Location = new System.Drawing.Point(8, 275);
             this.AllVehiclesBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AllVehiclesBtn.Name = "AllVehiclesBtn";
             this.AllVehiclesBtn.Size = new System.Drawing.Size(220, 28);
@@ -336,7 +366,7 @@
             this.GunsGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.GunsGroupBox.Name = "GunsGroupBox";
             this.GunsGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.GunsGroupBox.Size = new System.Drawing.Size(365, 238);
+            this.GunsGroupBox.Size = new System.Drawing.Size(365, 313);
             this.GunsGroupBox.TabIndex = 5;
             this.GunsGroupBox.TabStop = false;
             this.GunsGroupBox.Text = "Guns";
@@ -391,7 +421,7 @@
             // 
             // AllCustomizeBtn
             // 
-            this.AllCustomizeBtn.Location = new System.Drawing.Point(188, 202);
+            this.AllCustomizeBtn.Location = new System.Drawing.Point(185, 275);
             this.AllCustomizeBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AllCustomizeBtn.Name = "AllCustomizeBtn";
             this.AllCustomizeBtn.Size = new System.Drawing.Size(172, 28);
@@ -427,7 +457,7 @@
             // 
             // AllGunsBtn
             // 
-            this.AllGunsBtn.Location = new System.Drawing.Point(8, 202);
+            this.AllGunsBtn.Location = new System.Drawing.Point(8, 275);
             this.AllGunsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AllGunsBtn.Name = "AllGunsBtn";
             this.AllGunsBtn.Size = new System.Drawing.Size(172, 28);
@@ -477,7 +507,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 309);
+            this.ClientSize = new System.Drawing.Size(1051, 378);
             this.Controls.Add(this.GunsGroupBox);
             this.Controls.Add(this.VehiclesGroup);
             this.Controls.Add(this.ItemsCategoriesLabel);
@@ -530,5 +560,7 @@
         private System.Windows.Forms.Button GrenadesBtn;
         private System.Windows.Forms.Button AmmoBtn;
         private System.Windows.Forms.Button SupplyBtn;
+        private System.Windows.Forms.Button GlassesBtn;
+        private System.Windows.Forms.Button MasksBtn;
     }
 }

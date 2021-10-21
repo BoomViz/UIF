@@ -226,7 +226,23 @@ namespace UIF
 			new ItemList(items).ShowDialog();
 		}
 
-		private void RaidItemsBtn_Click(object sender, EventArgs e)
+        private void GlassesBtn_Click(object sender, EventArgs e)
+        {
+			var items = Core.ParseAll(Main.CurrentFolderPath, i => i.GetValue("type") == "Glasses");
+			items.Sort((a, b) => b.CompareTo(a, Core.CompareModes.ClothingProtection));
+
+			new ItemList(items).ShowDialog();
+		}
+
+        private void MasksBtn_Click(object sender, EventArgs e)
+        {
+			var items = Core.ParseAll(Main.CurrentFolderPath, i => i.GetValue("type") == "Mask");
+			items.Sort((a, b) => b.CompareTo(a, Core.CompareModes.ClothingProtection));
+
+			new ItemList(items).ShowDialog();
+		}
+
+        private void RaidItemsBtn_Click(object sender, EventArgs e)
 		{
 			var items = Core.ParseAll(Main.CurrentFolderPath, i => (
 				i.GetValue("useable") == "Gun" && i.ContainsKey("invulnerable") && i.GetValue("structure_damage", "0").ToFloat() != 0) ||	// Guns
