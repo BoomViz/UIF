@@ -118,14 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ErrorDiscordSuffix" xml:space="preserve">
-    <value>
-Обратитесь с этой ошибкой на дискорд сервер.</value>
+    <value>Обратитесь с этой ошибкой на дискорд сервер.</value>
   </data>
   <data name="FolderDoesntExists" xml:space="preserve">
     <value>Указанная папка больше не существует.</value>
   </data>
   <data name="FolderErrorText" xml:space="preserve">
     <value>Папка не указана!</value>
+  </data>
+  <data name="FolderNotSelected" xml:space="preserve">
+    <value>Пожалуйста, выберите папку.</value>
   </data>
   <data name="InvalidCompareMode" xml:space="preserve">
     <value>Dev: CompareMode указан не верно.</value>

@@ -293,8 +293,11 @@ namespace UIF
 						.CompareTo(buildingH_useable_a == "Barricade" || buildingH_useable_a == "Structure"
 						|| buildingH_type_a == "Structure" || buildingH_type_a == "Barricade" ? a.GetValue("health", "0").ToFloat() : 0);
 				case CompareModes.AmmoAmount:
-					return (val.GetValue("type") == "Magazine" ? val.GetValue("amount", "0").ToInt() * val.GetValue("pellets", "1").ToInt() : 0)
-						.CompareTo(a.GetValue("type") == "Magazine" ? a.GetValue("amount", "0").ToInt() * a.GetValue("pellets", "1").ToInt() : 0);
+					string typea = a.GetValue("type"),
+						typeval = val.GetValue("type");
+
+					return (typeval == "Magazine" ? val.GetValue("amount", "0").ToInt() * val.GetValue("pellets", "1").ToInt() : (typeval == "Supply" ? 1 : 0))
+						.CompareTo(typea == "Magazine" ? a.GetValue("amount", "0").ToInt() * a.GetValue("pellets", "1").ToInt() : (typea == "Supply" ? 1 : 0));
 
 				default:
 					throw new Exception(Localization.CurrentAdditional.GetStringSafety("InvalidCompareMode") +
@@ -358,12 +361,57 @@ namespace UIF
 
 		}
 
-		public static List<Item> ParseAll(string folderPath, Func<Item, bool> filter = null)
+		public static void ItemsFilter(Func<Item, bool> filter, ref List<Item> items)
+		{
+			for (int i = 0; i < items.Count; i++) {
+				if (!filter(items[i])) {
+					items.RemoveAt(i);
+					i -= 1;  // Так как мы удаляем элемент, то следующий стает на его место, таким образом, если не сделать i -= 1,
+							 // то мы оставим след. элемент в списке без проверки
+				}
+			}
+		}
+
+		public static List<Item> ParseAll(List<string> folders, Func<Item, bool> filter = null, bool enableProcessors = true)
+		{
+			if (loadedItems != null) {
+				if (filter != null) {
+					List<Item> items = new List<Item>();
+					foreach (Item item in loadedItems) {
+						if (filter(item))
+							items.Add(item);
+					}
+
+					return items;
+				} else {
+					return loadedItems;
+				}
+			}
+
+			List<Item> ret = new List<Item>();
+
+			foreach (string folder in folders) {
+				ret.AddRange(ParseAll(folder, null, false));
+			}
+
+			if (enableProcessors)
+				ItemsPreprocessor(ref ret);
+
+			if (filter != null)
+				ItemsFilter(filter, ref ret);
+
+			if (enableProcessors)
+				ItemsPostprocessor(ref ret);
+
+			return ret;
+		}
+
+		public static List<Item> ParseAll(string folderPath, Func<Item, bool> filter = null, bool enableProcessors = true)
 		{
 			if (loadedItems == null)
 			{
 				if (!Directory.Exists(folderPath))
-					throw new FileNotFoundException(Localization.CurrentAdditional.GetStringSafety("FolderDoesntExists"));
+					throw new FileNotFoundException(Localization.CurrentAdditional.GetStringSafety("FolderDoesntExists") + "\n\n(" + folderPath + ")");
 
 				List<Item> items = new List<Item>();
 
@@ -376,19 +424,14 @@ namespace UIF
 					}
 				}
 
-				ItemsPreprocessor(ref items);
+				if (enableProcessors)
+					ItemsPreprocessor(ref items);
 
-				// filter
 				if (filter != null)
-					for (int i = 0; i < items.Count; i++) {
-						if (!filter(items[i])) {
-							items.RemoveAt(i);
-							i -= 1;  // Так как мы удаляем элемент, то следующий стает на его место, таким образом, если не сделать i -= 1,
-							// то мы оставим след. элемент в списке без проверки
-						}
-					}
+					ItemsFilter(filter, ref items);
 
-				ItemsPostprocessor(ref items);
+				if (enableProcessors)
+					ItemsPostprocessor(ref items);
 
 				return items;
 			} else {

@@ -150,6 +150,15 @@
   <data name="CarsBtn" xml:space="preserve">
     <value>Машины</value>
   </data>
+  <data name="ChargesBtn" xml:space="preserve">
+    <value>С4</value>
+  </data>
+  <data name="DetonatorsBtn" xml:space="preserve">
+    <value>Детонаторы</value>
+  </data>
+  <data name="GlassesBtn" xml:space="preserve">
+    <value>Очки</value>
+  </data>
   <data name="GrenadesBtn" xml:space="preserve">
     <value>Гранаты</value>
   </data>
@@ -170,6 +179,12 @@
   </data>
   <data name="ItemsCategoriesLabel" xml:space="preserve">
     <value>Категории предметров</value>
+  </data>
+  <data name="MasksBtn" xml:space="preserve">
+    <value>Маски</value>
+  </data>
+  <data name="MeleeBtn" xml:space="preserve">
+    <value>Холодное оружие</value>
   </data>
   <data name="OtherGroupBox" xml:space="preserve">
     <value>Разное</value>
@@ -199,7 +214,7 @@
     <value>Постройки</value>
   </data>
   <data name="SupplyBtn" xml:space="preserve">
-    <value>Снабжение</value>
+    <value>Для крафта</value>
   </data>
   <data name="SuppressorsBtn" xml:space="preserve">
     <value>Глушители</value>
