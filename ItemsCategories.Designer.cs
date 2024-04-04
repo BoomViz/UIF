@@ -66,6 +66,7 @@
             this.SemiGunsBtn = new System.Windows.Forms.Button();
             this.SecondaryItemsBtn = new System.Windows.Forms.Button();
             this.AutomaticWeaponsBtn = new System.Windows.Forms.Button();
+            this.TrapsBtn = new System.Windows.Forms.Button();
             this.ArmorGroupBox.SuspendLayout();
             this.OtherGroupBox.SuspendLayout();
             this.VehiclesGroup.SuspendLayout();
@@ -179,6 +180,7 @@
             // 
             // OtherGroupBox
             // 
+            this.OtherGroupBox.Controls.Add(this.TrapsBtn);
             this.OtherGroupBox.Controls.Add(this.DetonatorsBtn);
             this.OtherGroupBox.Controls.Add(this.ChargesBtn);
             this.OtherGroupBox.Controls.Add(this.SupplyBtn);
@@ -217,7 +219,7 @@
             // 
             // SupplyBtn
             // 
-            this.SupplyBtn.Location = new System.Drawing.Point(6, 164);
+            this.SupplyBtn.Location = new System.Drawing.Point(7, 193);
             this.SupplyBtn.Name = "SupplyBtn";
             this.SupplyBtn.Size = new System.Drawing.Size(139, 23);
             this.SupplyBtn.TabIndex = 11;
@@ -501,6 +503,17 @@
             this.AutomaticWeaponsBtn.UseVisualStyleBackColor = true;
             this.AutomaticWeaponsBtn.Click += new System.EventHandler(this.AutomaticWeaponsBtn_Click);
             // 
+            // TrapsBtn
+            // 
+            this.TrapsBtn.Location = new System.Drawing.Point(7, 164);
+            this.TrapsBtn.Name = "TrapsBtn";
+            this.TrapsBtn.Size = new System.Drawing.Size(139, 23);
+            this.TrapsBtn.TabIndex = 14;
+            this.TrapsBtn.TabStop = false;
+            this.TrapsBtn.Text = "Traps";
+            this.TrapsBtn.UseVisualStyleBackColor = true;
+            this.TrapsBtn.Click += new System.EventHandler(this.TrapsBtn_Click);
+            // 
             // ItemsCategories
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -562,5 +575,6 @@
         private System.Windows.Forms.Button GlassesBtn;
         private System.Windows.Forms.Button DetonatorsBtn;
         private System.Windows.Forms.Button ChargesBtn;
+        private System.Windows.Forms.Button TrapsBtn;
     }
 }

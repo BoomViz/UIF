@@ -222,6 +222,9 @@
   <data name="TacticsBtn" xml:space="preserve">
     <value>Тактические (лазеры)</value>
   </data>
+  <data name="TrapsBtn" xml:space="preserve">
+    <value>Ловушки</value>
+  </data>
   <data name="VehiclesGroup" xml:space="preserve">
     <value>Транспорт</value>
   </data>
