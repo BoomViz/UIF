@@ -146,14 +146,18 @@ namespace UIF
 		{
 			var items = Core.ParseAll(Folders.CheckedFolders, i => i.GetValue("type") == "Grip");
 
-			new ItemList(items).ShowDialog();
+			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Spread));
+
+            new ItemList(items).ShowDialog();
 		}
 
 		private void SuppressorsBtn_Click(object sender, EventArgs e)
 		{
 			var items = Core.ParseAll(Folders.CheckedFolders, i => i.GetValue("type") == "Barrel");
 
-			new ItemList(items).ShowDialog();
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Spread));
+
+            new ItemList(items).ShowDialog();
 		}
 
 		private void AllCustomizeBtn_Click(object sender, EventArgs e)
@@ -190,9 +194,9 @@ namespace UIF
 		private void TacticalsBtn_Click(object sender, EventArgs e)
 		{
 			var items = Core.ParseAll(Folders.CheckedFolders, i => i.GetValue("type") == "Tactical");
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Damage));
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Spread));
 
-			new ItemList(items).ShowDialog();
+            new ItemList(items).ShowDialog();
 		}
 
 		private void SightsBtn_Click(object sender, EventArgs e)

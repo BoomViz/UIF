@@ -198,8 +198,8 @@
   <data name="ResultsLabel" xml:space="preserve">
     <value>Результаты поиска:</value>
   </data>
-  <data name="ShakeLabel" xml:space="preserve">
-    <value>Множитель разброса (обвесы):</value>
+  <data name="SpreadLabel" xml:space="preserve">
+    <value>Разброс (обвесы):</value>
   </data>
   <data name="SortBarricadeCapacityBtn" xml:space="preserve">
     <value>Вместительности баррикад</value>
@@ -211,15 +211,15 @@
     <value>Множитель урона (обвесы)</value>
   </data>
   <data name="SortByBuildingHealthBtn" xml:space="preserve">
-    <value>Хп построек</value>
+    <value>HP построек</value>
   </data>
   <data name="SortByLabel" xml:space="preserve">
-    <value>Сортировать</value>
+    <value>Сортировка</value>
   </data>
   <data name="SortByPelletsBtn" xml:space="preserve">
     <value>Количеству дробинок</value>
   </data>
-  <data name="SortByShakeBtn" xml:space="preserve">
+  <data name="SortBySpreadBtn" xml:space="preserve">
     <value>По разбросу (обвесы)</value>
   </data>
   <data name="SortByVolumeBtn" xml:space="preserve">
@@ -251,5 +251,14 @@
   </data>
   <data name="VolumeLabel" xml:space="preserve">
     <value>Множитель звука (обвесы):</value>
+  </data>
+  <data name="Recoil_XYLabel" xml:space="preserve">
+    <value>Отдача X/Y:</value>
+  </data>
+  <data name="SortByRecoilXBtn" xml:space="preserve">
+    <value>Отдача X</value>
+  </data>
+  <data name="SortByRecoilYBtn" xml:space="preserve">
+    <value>Отдача Y</value>
   </data>
 </root>
