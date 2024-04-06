@@ -151,7 +151,7 @@
     <value>Машины</value>
   </data>
   <data name="ChargesBtn" xml:space="preserve">
-    <value>С4</value>
+    <value>Взрывчатка</value>
   </data>
   <data name="DetonatorsBtn" xml:space="preserve">
     <value>Детонаторы</value>
@@ -221,6 +221,9 @@
   </data>
   <data name="TacticsBtn" xml:space="preserve">
     <value>Тактические (лазеры)</value>
+  </data>
+  <data name="TrapsBtn" xml:space="preserve">
+    <value>Ловушки</value>
   </data>
   <data name="VehiclesGroup" xml:space="preserve">
     <value>Транспорт</value>

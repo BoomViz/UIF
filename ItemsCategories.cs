@@ -268,6 +268,14 @@ namespace UIF
             new ItemList(items).ShowDialog();
 		}
 
+        private void TrapsBtn_Click(object sender, EventArgs e)
+        {
+            var items = Core.ParseAll(Folders.CheckedFolders, i => i.GetValue("type") == "Trap");
+			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.BuildingHealth));
+
+			new ItemList(items).ShowDialog();
+        }
+
         private void RaidItemsBtn_Click(object sender, EventArgs e)
 		{
 			var items = Core.ParseAll(Folders.CheckedFolders, i => (
