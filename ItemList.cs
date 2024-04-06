@@ -176,15 +176,15 @@ namespace UIF
 
 			UpdateItemList();
 		}
+		
+        private void SortBySpreadBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Spread));
 
-		private void SortByShakeBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Shake));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
-
-		private void SortByBarrelDamageBtn_Click(object sender, EventArgs e)
+        private void SortByBarrelDamageBtn_Click(object sender, EventArgs e)
 		{
 			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.BarrelDamage));
 
@@ -245,7 +245,21 @@ namespace UIF
 			UpdateItemList();
 		}
 
-		private void SortByVolumeBtn_Click(object sender, EventArgs e)
+        private void SortByRecoilYBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Recoil_Y));
+
+            UpdateItemList();
+        }
+
+        private void SortByRecoilXBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Recoil_X));
+
+            UpdateItemList();
+        }
+
+        private void SortByVolumeBtn_Click(object sender, EventArgs e)
 		{
 			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.BarrelVolume));
 
