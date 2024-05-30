@@ -32,6 +32,10 @@
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.EnterNameLabel = new System.Windows.Forms.Label();
             this.MainGroupBox = new System.Windows.Forms.GroupBox();
+            this.TypesInfoBtn = new System.Windows.Forms.PictureBox();
+            this.SearchTypeBtn = new System.Windows.Forms.Button();
+            this.EnterTypeLabel = new System.Windows.Forms.Label();
+            this.TypeBox = new System.Windows.Forms.TextBox();
             this.SearchIDBtn = new System.Windows.Forms.Button();
             this.EnterIdLabel = new System.Windows.Forms.Label();
             this.IDBox = new System.Windows.Forms.TextBox();
@@ -51,6 +55,7 @@
             this.DiscordLink = new System.Windows.Forms.PictureBox();
             this.GitHubLink = new System.Windows.Forms.PictureBox();
             this.MainGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TypesInfoBtn)).BeginInit();
             this.SettingsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoBtn)).BeginInit();
             this.AboutGroupBox.SuspendLayout();
@@ -72,13 +77,17 @@
             this.EnterNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EnterNameLabel.Location = new System.Drawing.Point(6, 20);
             this.EnterNameLabel.Name = "EnterNameLabel";
-            this.EnterNameLabel.Size = new System.Drawing.Size(107, 16);
+            this.EnterNameLabel.Size = new System.Drawing.Size(109, 16);
             this.EnterNameLabel.TabIndex = 6;
-            this.EnterNameLabel.Text = "Enter item name:";
+            this.EnterNameLabel.Text = "Enter item Name:";
             this.EnterNameLabel.Click += new System.EventHandler(this.EnterNameLabel_Click);
             // 
             // MainGroupBox
             // 
+            this.MainGroupBox.Controls.Add(this.TypesInfoBtn);
+            this.MainGroupBox.Controls.Add(this.SearchTypeBtn);
+            this.MainGroupBox.Controls.Add(this.EnterTypeLabel);
+            this.MainGroupBox.Controls.Add(this.TypeBox);
             this.MainGroupBox.Controls.Add(this.SearchIDBtn);
             this.MainGroupBox.Controls.Add(this.EnterIdLabel);
             this.MainGroupBox.Controls.Add(this.IDBox);
@@ -88,10 +97,52 @@
             this.MainGroupBox.Controls.Add(this.EnterNameLabel);
             this.MainGroupBox.Location = new System.Drawing.Point(12, 12);
             this.MainGroupBox.Name = "MainGroupBox";
-            this.MainGroupBox.Size = new System.Drawing.Size(455, 103);
+            this.MainGroupBox.Size = new System.Drawing.Size(455, 123);
             this.MainGroupBox.TabIndex = 5;
             this.MainGroupBox.TabStop = false;
             this.MainGroupBox.Text = "MAIN";
+            // 
+            // TypesInfoBtn
+            // 
+            this.TypesInfoBtn.Image = global::UIF.Properties.Resources.info_icon;
+            this.TypesInfoBtn.InitialImage = global::UIF.Properties.Resources.info_icon;
+            this.TypesInfoBtn.Location = new System.Drawing.Point(342, 72);
+            this.TypesInfoBtn.Name = "TypesInfoBtn";
+            this.TypesInfoBtn.Size = new System.Drawing.Size(15, 15);
+            this.TypesInfoBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TypesInfoBtn.TabIndex = 11;
+            this.TypesInfoBtn.TabStop = false;
+            this.TypesInfoBtn.Click += new System.EventHandler(this.TypesInfoBtn_Click);
+            // 
+            // SearchTypeBtn
+            // 
+            this.SearchTypeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchTypeBtn.Location = new System.Drawing.Point(365, 71);
+            this.SearchTypeBtn.Name = "SearchTypeBtn";
+            this.SearchTypeBtn.Size = new System.Drawing.Size(84, 20);
+            this.SearchTypeBtn.TabIndex = 7;
+            this.SearchTypeBtn.TabStop = false;
+            this.SearchTypeBtn.Text = "Search";
+            this.SearchTypeBtn.UseVisualStyleBackColor = true;
+            this.SearchTypeBtn.Click += new System.EventHandler(this.SearchTypeBtn_Click);
+            // 
+            // EnterTypeLabel
+            // 
+            this.EnterTypeLabel.AutoSize = true;
+            this.EnterTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnterTypeLabel.Location = new System.Drawing.Point(6, 71);
+            this.EnterTypeLabel.Name = "EnterTypeLabel";
+            this.EnterTypeLabel.Size = new System.Drawing.Size(141, 16);
+            this.EnterTypeLabel.TabIndex = 8;
+            this.EnterTypeLabel.Text = "Or enter the item Type:";
+            // 
+            // TypeBox
+            // 
+            this.TypeBox.Location = new System.Drawing.Point(178, 71);
+            this.TypeBox.Name = "TypeBox";
+            this.TypeBox.Size = new System.Drawing.Size(180, 20);
+            this.TypeBox.TabIndex = 9;
+            this.TypeBox.TabStop = false;
             // 
             // SearchIDBtn
             // 
@@ -111,7 +162,7 @@
             this.EnterIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EnterIdLabel.Location = new System.Drawing.Point(6, 45);
             this.EnterIdLabel.Name = "EnterIdLabel";
-            this.EnterIdLabel.Size = new System.Drawing.Size(123, 16);
+            this.EnterIdLabel.Size = new System.Drawing.Size(122, 16);
             this.EnterIdLabel.TabIndex = 1;
             this.EnterIdLabel.Text = "Or enter the item ID:";
             this.EnterIdLabel.Click += new System.EventHandler(this.EnterIdLabel_Click);
@@ -127,7 +178,7 @@
             // AllItemsBtn
             // 
             this.AllItemsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AllItemsBtn.Location = new System.Drawing.Point(6, 71);
+            this.AllItemsBtn.Location = new System.Drawing.Point(6, 96);
             this.AllItemsBtn.Name = "AllItemsBtn";
             this.AllItemsBtn.Size = new System.Drawing.Size(443, 23);
             this.AllItemsBtn.TabIndex = 3;
@@ -154,7 +205,7 @@
             this.SelectFldrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SelectFldrLabel.Location = new System.Drawing.Point(6, 16);
             this.SelectFldrLabel.Name = "SelectFldrLabel";
-            this.SelectFldrLabel.Size = new System.Drawing.Size(164, 16);
+            this.SelectFldrLabel.Size = new System.Drawing.Size(163, 16);
             this.SelectFldrLabel.TabIndex = 2;
             this.SelectFldrLabel.Text = "Selected folder with mods:";
             this.SelectFldrLabel.Click += new System.EventHandler(this.SelectFldrLabel_Click);
@@ -189,7 +240,7 @@
             this.SettingsGroupBox.Controls.Add(this.InfoBtn);
             this.SettingsGroupBox.Controls.Add(this.SelectFldrLabel);
             this.SettingsGroupBox.Controls.Add(this.SelectedFldrsBtn);
-            this.SettingsGroupBox.Location = new System.Drawing.Point(12, 121);
+            this.SettingsGroupBox.Location = new System.Drawing.Point(12, 141);
             this.SettingsGroupBox.Name = "SettingsGroupBox";
             this.SettingsGroupBox.Size = new System.Drawing.Size(455, 73);
             this.SettingsGroupBox.TabIndex = 0;
@@ -213,7 +264,7 @@
             this.LocalizationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.LocalizationLabel.Location = new System.Drawing.Point(280, 45);
             this.LocalizationLabel.Name = "LocalizationLabel";
-            this.LocalizationLabel.Size = new System.Drawing.Size(72, 16);
+            this.LocalizationLabel.Size = new System.Drawing.Size(71, 16);
             this.LocalizationLabel.TabIndex = 8;
             this.LocalizationLabel.Text = "Language:";
             // 
@@ -260,7 +311,7 @@
             this.AboutGroupBox.Controls.Add(this.CopyrightLabel);
             this.AboutGroupBox.Controls.Add(this.DiscordLink);
             this.AboutGroupBox.Controls.Add(this.GitHubLink);
-            this.AboutGroupBox.Location = new System.Drawing.Point(12, 200);
+            this.AboutGroupBox.Location = new System.Drawing.Point(12, 221);
             this.AboutGroupBox.Name = "AboutGroupBox";
             this.AboutGroupBox.Size = new System.Drawing.Size(455, 65);
             this.AboutGroupBox.TabIndex = 6;
@@ -307,7 +358,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 275);
+            this.ClientSize = new System.Drawing.Size(479, 292);
             this.Controls.Add(this.AboutGroupBox);
             this.Controls.Add(this.SettingsGroupBox);
             this.Controls.Add(this.MainGroupBox);
@@ -318,6 +369,7 @@
             this.Text = "UIF";
             this.MainGroupBox.ResumeLayout(false);
             this.MainGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TypesInfoBtn)).EndInit();
             this.SettingsGroupBox.ResumeLayout(false);
             this.SettingsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoBtn)).EndInit();
@@ -352,6 +404,10 @@
         private System.Windows.Forms.Label LocalizationLabel;
         private System.Windows.Forms.Label RUAuthorLabel;
         private System.Windows.Forms.Button SelectedFldrsBtn;
+        private System.Windows.Forms.Button SearchTypeBtn;
+        private System.Windows.Forms.Label EnterTypeLabel;
+        private System.Windows.Forms.TextBox TypeBox;
+        private System.Windows.Forms.PictureBox TypesInfoBtn;
     }
 }
 

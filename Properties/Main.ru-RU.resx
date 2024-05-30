@@ -170,4 +170,18 @@
   <data name="SelectedFldrsBtn" xml:space="preserve">
     <value>Клик!</value>
   </data>
+  <data name="EnterTypeLabel" xml:space="preserve">
+    <value>Введите type предмета</value>
+  </data>
+  <data name="SearchTypeBtn" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="TypesTip" xml:space="preserve">
+    <value>Типы (список может быть неполный):
+hat, pants, shirt, mask, backpack, vest, glasses, gun, sight, tactical,
+grip, barrel, magazine, food, water, medical, melee, fuel, tool, barricade, storage,
+beacon, farm, trap, structure, supply, throwable, grower, optic, refill, fisher,
+cloud, map, key, box, arrest_start, arrest_end, tank, generator, detonator, charge,
+library, filter, sentry, vehicle_repair_tool, tire, compass, oil_pump, housing_planner</value>
+  </data>
 </root>
