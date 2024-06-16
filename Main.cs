@@ -47,7 +47,10 @@ namespace UIF
 			Tip.SetToolTip(InfoBtn, ModsTip);
 			Tip.SetToolTip(SelectFldrLabel, ModsTip);
 
-			if (Core.loadedItems == null)
+            TypesTip = MainRM.GetStringSafety("TypesTip");
+            Tip.SetToolTip(TypesInfoBtn, TypesTip);
+
+            if (Core.loadedItems == null)
 				LoadModsToRamBtn.Text = MainRM.GetStringSafety("LoadModsToRamBtn");
 			else
 				LoadModsToRamBtn.Text = MainRM.GetStringSafety("UnloadMods");
@@ -126,6 +129,24 @@ namespace UIF
 			new Folders().ShowDialog();
         }
 
-        private void LocalizationComboBox_TextUpdate(object sender, EventArgs e) => LocalizationComboBox.Text = Properties.Settings.Default.Locale;
+        private void SearchTypeBtn_Click(object sender, EventArgs e)
+        {
+            if (Folders.CheckedFoldersCount == 0)
+            {
+                MessageBox.Show(FolderErrorText);
+            }
+            else
+            {
+                var items = Core.ParseAll(Folders.CheckedFolders, i => i.GetValue("type").ToLower().Contains(TypeBox.Text.ToLower()));
+
+                new ItemList(items).ShowDialog();
+            }
+        }
+
+        private string TypesTip;
+		private void TypesInfoBtn_Click(object sender, EventArgs e) => Tip.Show(TypesTip, TypesInfoBtn);
+
+
+		private void LocalizationComboBox_TextUpdate(object sender, EventArgs e) => LocalizationComboBox.Text = Properties.Settings.Default.Locale;
 	}
 }

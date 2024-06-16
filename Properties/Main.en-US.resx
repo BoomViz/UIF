@@ -128,6 +128,14 @@ To display the linked items correctly, you also need to add a folder with standa
 
 Before using, you need to delete all the downloaded mods (...\workshop\content\304930) and log in to the server.</value>
   </data>
+  <data name="TypesTip" xml:space="preserve">
+    <value>Types (the list may be incomplete):
+hat, pants, shirt, mask, backpack, vest, glasses, gun, sight, tactical,
+grip, barrel, magazine, food, water, medical, melee, fuel, tool, barricade, storage,
+beacon, farm, trap, structure, supply, throwable, grower, optic, refill, fisher,
+cloud, map, key, box, arrest_start, arrest_end, tank, generator, detonator, charge,
+library, filter, sentry, vehicle_repair_tool, tire, compass, oil_pump, housing_planner</value>
+  </data>
   <data name="UnloadMods" xml:space="preserve">
     <value>Unload Mods</value>
   </data>
