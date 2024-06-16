@@ -207,9 +207,6 @@
   <data name="ResultsLabel" xml:space="preserve">
     <value>Результаты поиска:</value>
   </data>
-  <data name="ShakeLabel" xml:space="preserve">
-    <value>Множитель разброса (обвесы):</value>
-  </data>
   <data name="SortBarricadeCapacityBtn" xml:space="preserve">
     <value>Вместительности баррикад</value>
   </data>
@@ -220,15 +217,33 @@
     <value>Множитель урона (обвесы)</value>
   </data>
   <data name="SortByBuildingHealthBtn" xml:space="preserve">
-    <value>Хп построек</value>
+    <value>HP построек</value>
+  </data>
+  <data name="SortByEMSMBtn" xml:space="preserve">
+    <value>Скорости прдвж (предметы)</value>
+  </data>
+  <data name="SortByFirerateBtn" xml:space="preserve">
+    <value>Скорострельности</value>
   </data>
   <data name="SortByLabel" xml:space="preserve">
-    <value>Сортировать</value>
+    <value>Сортировка</value>
+  </data>
+  <data name="SortByMSMBtn" xml:space="preserve">
+    <value>Скорости прдвж (одежда)</value>
   </data>
   <data name="SortByPelletsBtn" xml:space="preserve">
     <value>Количеству дробинок</value>
   </data>
-  <data name="SortByShakeBtn" xml:space="preserve">
+  <data name="SortByRangeBtn" xml:space="preserve">
+    <value>Дальности</value>
+  </data>
+  <data name="SortByRecoilXBtn" xml:space="preserve">
+    <value>Отдача X</value>
+  </data>
+  <data name="SortByRecoilYBtn" xml:space="preserve">
+    <value>Отдача Y</value>
+  </data>
+  <data name="SortBySpreadBtn" xml:space="preserve">
     <value>По разбросу (обвесы)</value>
   </data>
   <data name="SortByVolumeBtn" xml:space="preserve">

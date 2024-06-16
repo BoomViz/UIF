@@ -188,14 +188,14 @@ namespace UIF
                         useable == "Barricade" || useable == "Structure")
                         return value;
 
-					return errReturn;
-				case "shake":
-					string shake_type = this.GetValue("type");
+                    return errReturn;
+                case "spread":
+                    string spread_type = this.GetValue("type");
 
-					if (shake_type == "Grip" ||
-						shake_type == "Barrel" ||
-						shake_type == "Tactical")
-						return value;
+                    if (spread_type == "Grip" ||
+                        spread_type == "Barrel" ||
+                        spread_type == "Tactical")
+                        return value;
 
                     return errReturn;
                 case "volume":
@@ -229,58 +229,91 @@ namespace UIF
     {
         public static List<Item> loadedItems;
 
-		public enum CompareModes
-		{
-			Damage,
-			StructureDamage,
-			ClothingProtection,
-			ClothingStorage,
-			VehicleHealth,
-			StructureCapacity,
-			BuildingHealth,
-			Shake,
-			BarrelDamage,
-			BarrelVolume,
-			AmmoAmount
-		}
+        public enum CompareModes
+        {
+            Damage,
+            StructureDamage,
+            ClothingProtection,
+            ClothingStorage,
+            VehicleHealth,
+            StructureCapacity,
+            BuildingHealth,
+            Spread,
+            Recoil_X,
+            Recoil_Y,
+            BarrelDamage,
+            BarrelVolume,
+            AmmoAmount,
+            EMSM,
+            MSM,
+            Firerate,
+            Range
+        }
 
-		public static int CompareTo(this Item a, Item val, CompareModes mode)
-		{
-			switch (mode)
-			{
-				case CompareModes.StructureDamage:
-					return ((val.GetValue("type") == "Charge" || val.GetValue("useable") == "Gun") ? val.GetValue("structure_damage", "0").ToFloat() : 0)
-						.CompareTo((a.GetValue("type") == "Charge" || a.GetValue("useable") == "Gun") ? a.GetValue("structure_damage", "0").ToFloat() : 0);
-				case CompareModes.Damage:
-					return (val.GetValue("useable") == "Gun" ? val.GetAverageDamage() : 0)
-						.CompareTo(a.GetValue("useable") == "Gun" ? a.GetAverageDamage() : 0);
-				case CompareModes.ClothingProtection:
-					return (a.GetValue("useable") == "Clothing" ? a.GetValue("armor", "1").ToFloat() : 1)
-						.CompareTo(val.GetValue("useable") == "Clothing" ? val.GetValue("armor", "1").ToFloat() : 1);
-				case CompareModes.ClothingStorage:
-					return (val.GetValue("useable") == "Clothing" ? (val.GetValue("height", "0").ToInt() * val.GetValue("width", "0").ToInt()) : 0)
-						.CompareTo(a.GetValue("useable") == "Clothing" ? (a.GetValue("height", "0").ToInt() * a.GetValue("width", "0").ToInt()) : 0);
-				case CompareModes.VehicleHealth:
-					return (val.GetValue("type") == "Vehicle" ? val.GetValue("health", "0").ToFloat() : 0)
-						.CompareTo(a.GetValue("type") == "Vehicle" ? a.GetValue("health", "0").ToFloat() : 0);
-				case CompareModes.Shake:
-					string shake_type_a = a.GetValue("type"),
-						shake_type_val = val.GetValue("type");
+        public static int CompareTo(this Item a, Item val, CompareModes mode)
+        {
+            switch (mode)
+            {
+                case CompareModes.StructureDamage:
+                    return ((val.GetValue("type") == "Charge" || val.GetValue("useable") == "Gun") ? val.GetValue("structure_damage", "0").ToFloat() : 0)
+                        .CompareTo((a.GetValue("type") == "Charge" || a.GetValue("useable") == "Gun") ? a.GetValue("structure_damage", "0").ToFloat() : 0);
+                case CompareModes.Damage:
+                    return (val.GetValue("useable") == "Gun" ? val.GetAverageDamage() : 0)
+                        .CompareTo(a.GetValue("useable") == "Gun" ? a.GetAverageDamage() : 0);
+                case CompareModes.Firerate:
+                    string firerate_type_a = a.GetValue("type"),
+                         firerate_type_val = val.GetValue("type");
 
-					return (shake_type_a == "Grip" || shake_type_a == "Barrel" || shake_type_a == "Tactical" ? a.GetValue("shake", "1").ToFloat() : 1)
-						.CompareTo(shake_type_val == "Grip" || shake_type_val == "Barrel" || shake_type_val == "Tactical" ? val.GetValue("shake", "1").ToFloat() : 1);
-				case CompareModes.BarrelDamage:
-					return (a.GetValue("type") == "Barrel" ? a.GetValue("damage", "0").ToFloat() : 0)
-						.CompareTo(val.GetValue("type") == "Barrel" ? val.GetValue("damage", "0").ToFloat() : 0);
-				case CompareModes.BarrelVolume:
-					return (a.GetValue("type") == "Barrel" ? a.GetValue("volume", "1").ToFloat() : 1)
-						.CompareTo(val.GetValue("type") == "Barrel" ? val.GetValue("volume", "1").ToFloat() : 1);
-				case CompareModes.StructureCapacity:
-					return (val.GetValue("type") == "Storage" ? val.GetClothingCapacity() : 0)
-						.CompareTo(a.GetValue("type") == "Storage" ? a.GetClothingCapacity() : 0);
-				case CompareModes.BuildingHealth:
-					string buildingH_type_a = a.GetValue("type"),
-						buildingH_type_val = val.GetValue("type");
+                    return (firerate_type_a == "Grip" || firerate_type_a == "Barrel" || firerate_type_a == "Tactical" || firerate_type_a == "Gun" ? a.GetValue("firerate", "1").ToFloat() : 1)
+                        .CompareTo(firerate_type_val == "Grip" || firerate_type_val == "Barrel" || firerate_type_val == "Tactical" || firerate_type_val == "Gun" ? val.GetValue("firerate", "1").ToFloat() : 1);
+                case CompareModes.Range:
+                    return ((val.GetValue("type") == "Melee" || val.GetValue("type") == "Gun") ? val.GetValue("range", "0").ToFloat() : 0)
+                        .CompareTo((a.GetValue("type") == "Melee" || a.GetValue("type") == "Gun") ? a.GetValue("range", "0").ToFloat() : 0);
+                case CompareModes.ClothingProtection:
+                    return (a.GetValue("useable") == "Clothing" ? a.GetValue("armor", "1").ToFloat() : 1)
+                        .CompareTo(val.GetValue("useable") == "Clothing" ? val.GetValue("armor", "1").ToFloat() : 1);
+                case CompareModes.ClothingStorage:
+                    return (val.GetValue("useable") == "Clothing" ? (val.GetValue("height", "0").ToInt() * val.GetValue("width", "0").ToInt()) : 0)
+                        .CompareTo(a.GetValue("useable") == "Clothing" ? (a.GetValue("height", "0").ToInt() * a.GetValue("width", "0").ToInt()) : 0);
+                case CompareModes.VehicleHealth:
+                    return (val.GetValue("type") == "Vehicle" ? val.GetValue("health", "0").ToFloat() : 0)
+                        .CompareTo(a.GetValue("type") == "Vehicle" ? a.GetValue("health", "0").ToFloat() : 0);
+                case CompareModes.Spread:
+                    string spread_type_a = a.GetValue("type"),
+                        spread_type_val = val.GetValue("type");
+
+                    return (spread_type_a == "Grip" || spread_type_a == "Barrel" || spread_type_a == "Tactical" ? a.GetValue("spread", "1").ToFloat() : 1)
+                        .CompareTo(spread_type_val == "Grip" || spread_type_val == "Barrel" || spread_type_val == "Tactical" ? val.GetValue("spread", "1").ToFloat() : 1);
+                case CompareModes.Recoil_X:
+                    string recoil_x_type_a = a.GetValue("type"),
+                        recoil_x_type_val = val.GetValue("type");
+
+                    return (recoil_x_type_a == "Grip" || recoil_x_type_a == "Barrel" || recoil_x_type_a == "Tactical" ? a.GetValue("recoil_x", "1").ToFloat() : 1)
+                        .CompareTo(recoil_x_type_val == "Grip" || recoil_x_type_val == "Barrel" || recoil_x_type_val == "Tactical" ? val.GetValue("recoil_x", "1").ToFloat() : 1);
+                case CompareModes.Recoil_Y:
+                    string recoil_y_type_a = a.GetValue("type"),
+                        recoil_y_type_val = val.GetValue("type");
+
+                    return (recoil_y_type_a == "Grip" || recoil_y_type_a == "Barrel" || recoil_y_type_a == "Tactical" ? a.GetValue("recoil_y", "1").ToFloat() : 1)
+                        .CompareTo(recoil_y_type_val == "Grip" || recoil_y_type_val == "Barrel" || recoil_y_type_val == "Tactical" ? val.GetValue("recoil_y", "1").ToFloat() : 1);
+                case CompareModes.EMSM:
+                    return (a.GetValue("type") == "" ? a.GetValue("equipable_movement_speed_multiplier", "1").ToFloat() : 1)
+                        .CompareTo(val.GetValue("type") == "" ? val.GetValue("equipable_movement_speed_multiplier", "1").ToFloat() : 1);
+                case CompareModes.MSM:
+                    return (a.GetValue("type") == "" ? a.GetValue("movement_speed_multiplier", "1").ToFloat() : 1)
+                        .CompareTo(val.GetValue("type") == "" ? val.GetValue("movement_speed_multiplier", "1").ToFloat() : 1);
+                case CompareModes.BarrelDamage:
+                    return (a.GetValue("type") == "Barrel" ? a.GetValue("damage", "0").ToFloat() : 0)
+                        .CompareTo(val.GetValue("type") == "Barrel" ? val.GetValue("damage", "0").ToFloat() : 0);
+                case CompareModes.BarrelVolume:
+                    return (a.GetValue("type") == "Barrel" ? a.GetValue("volume", "1").ToFloat() : 1)
+                        .CompareTo(val.GetValue("type") == "Barrel" ? val.GetValue("volume", "1").ToFloat() : 1);
+                case CompareModes.StructureCapacity:
+                    return (val.GetValue("type") == "Storage" ? val.GetClothingCapacity() : 0)
+                        .CompareTo(a.GetValue("type") == "Storage" ? a.GetClothingCapacity() : 0);
+                case CompareModes.BuildingHealth:
+                    string buildingH_type_a = a.GetValue("type"),
+                        buildingH_type_val = val.GetValue("type");
 
                     string buildingH_useable_a = a.GetValue("useable"),
                         buildingH_useable_val = val.GetValue("useable");
