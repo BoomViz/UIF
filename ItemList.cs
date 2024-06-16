@@ -6,250 +6,306 @@ using System.Windows.Forms;
 
 namespace UIF
 {
-	public partial class ItemList : Form
-	{
-		private List<Item> items;
-		private Control[] paramsBoxes;
+    public partial class ItemList : Form
+    {
+        private List<Item> items;
+        private Control[] paramsBoxes;
 
-		private ResourceManager CurrentMainRM, CurrentAdditionalRM;
+        private ResourceManager CurrentMainRM, CurrentAdditionalRM;
 
-		Item selectedItem = null;
+        Item selectedItem = null;
 
-		public ItemList(List<Item> _items)
-		{
-			if (_items == null) {
-				MessageBox.Show(Localization.CurrentAdditional.GetStringSafety("ItemListIsNull") +
-					Localization.CurrentAdditional.GetStringSafety("ErrorDiscordSuffix"));
-			} else {
-				InitializeComponent();
+        public ItemList(List<Item> _items)
+        {
+            if (_items == null)
+            {
+                MessageBox.Show(Localization.CurrentAdditional.GetStringSafety("ItemListIsNull") +
+                    Localization.CurrentAdditional.GetStringSafety("ErrorDiscordSuffix"));
+            }
+            else
+            {
+                InitializeComponent();
 
-				for (int i = 0; i < _items.Count; i++)
-					ResultsListBox.Items.Add(_items[i].GetValue("name") + " (" + _items[i].GetValue("id") + ")");
+                for (int i = 0; i < _items.Count; i++)
+                    ResultsListBox.Items.Add(_items[i].GetValue("name") + " (" + _items[i].GetValue("id") + ")");
 
-				items = _items;
+                items = _items;
 
-				paramsBoxes = Misc.GetAllControls(ItemStatsGroupBox, c => c.GetType() == typeof(TextBox)).ToArray();
-			}
+                paramsBoxes = Misc.GetAllControls(ItemStatsPanel, c => c.GetType() == typeof(TextBox)).ToArray();
+            }
 
-			_UpdateLocalization();
-		}
+            _UpdateLocalization();
+        }
 
-		public void OnLocalizationChange(ResourceManager MainRM, ResourceManager AdditionalRM)
-		{
-			CurrentMainRM = MainRM;
-			CurrentAdditionalRM = AdditionalRM;
-		}
+        public void OnLocalizationChange(ResourceManager MainRM, ResourceManager AdditionalRM)
+        {
+            CurrentMainRM = MainRM;
+            CurrentAdditionalRM = AdditionalRM;
+        }
 
-		private void _UpdateLocalization() => Localization.UpdateLocalization(this);
+        private void _UpdateLocalization() => Localization.UpdateLocalization(this);
 
-		private void UpdateItemList()
-		{
-			ResultsListBox.Items.Clear();
+        private void UpdateItemList()
+        {
+            ResultsListBox.Items.Clear();
 
-			for (int i = 0; i < items.Count; i++)
-				ResultsListBox.Items.Add(items[i].GetValue("name") + " (" + items[i].GetValue("id") + ")");
-		}
+            for (int i = 0; i < items.Count; i++)
+                ResultsListBox.Items.Add(items[i].GetValue("name") + " (" + items[i].GetValue("id") + ")");
+        }
 
-		private void ClearTextBoxes() {
-			foreach (Control control in paramsBoxes)
-				((TextBox)control).Clear();
-		}
+        private void ClearTextBoxes()
+        {
+            foreach (Control control in paramsBoxes)
+                ((TextBox)control).Clear();
+        }
 
-		private void ResultsListBox_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (ResultsListBox.SelectedIndex == -1) {
-				NameTextBox.Clear();
-				IdTextBox.Clear();
+        private void ResultsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ResultsListBox.SelectedIndex == -1)
+            {
+                NameTextBox.Clear();
+                IdTextBox.Clear();
 
-				ClearTextBoxes();
-			} else {			
-				ClearTextBoxes();
+                ClearTextBoxes();
+            }
+            else
+            {
+                ClearTextBoxes();
 
-				selectedItem = items[ResultsListBox.SelectedIndex];
-				
-				IdTextBox.Text = selectedItem.GetValue("id");
-				NameTextBox.Text = selectedItem.GetValue("name");
+                selectedItem = items[ResultsListBox.SelectedIndex];
 
-				foreach (TextBox control in paramsBoxes)
-					control.Text = selectedItem.FormatKey(control.Name);
-			}
-		}
+                IdTextBox.Text = selectedItem.GetValue("id");
+                NameTextBox.Text = selectedItem.GetValue("name");
 
-		private void IdToClipboard_Click(object sender, EventArgs e)
-		{
-			if (ResultsListBox.SelectedIndex != -1)
-				Clipboard.SetText(
-					((IdPrefixTextBox.Text != string.Empty ? IdPrefixTextBox.Text + " " : string.Empty)
-					+ items[ResultsListBox.SelectedIndex].GetValue("id")).Trim()
-				);
-		}
+                foreach (TextBox control in paramsBoxes)
+                    control.Text = selectedItem.FormatKey(control.Name);
+            }
+        }
 
-		private void NameIdToClipboard_Click(object sender, EventArgs e)
-		{
-			if (ResultsListBox.SelectedIndex != -1)
-				Clipboard.SetText(
-					(
-						items[ResultsListBox.SelectedIndex].GetValue("name")
-						+ " - "
-						+ (IdPrefixTextBox.Text != string.Empty ? IdPrefixTextBox.Text + " " : string.Empty)
-						+ items[ResultsListBox.SelectedIndex].GetValue("id")
-					)
-					.Trim()
-				);
-		}
+        private void IdToClipboard_Click(object sender, EventArgs e)
+        {
+            if (ResultsListBox.SelectedIndex != -1)
+                Clipboard.SetText(
+                    ((IdPrefixTextBox.Text != string.Empty ? IdPrefixTextBox.Text + " " : string.Empty)
+                    + items[ResultsListBox.SelectedIndex].GetValue("id")).Trim()
+                );
+        }
 
-		private void AllNameIdToClipboard_Click(object sender, EventArgs e)
-		{
-			string copyStr = string.Empty;
+        private void NameIdToClipboard_Click(object sender, EventArgs e)
+        {
+            if (ResultsListBox.SelectedIndex != -1)
+                Clipboard.SetText(
+                    (
+                        items[ResultsListBox.SelectedIndex].GetValue("name")
+                        + " - "
+                        + (IdPrefixTextBox.Text != string.Empty ? IdPrefixTextBox.Text + " " : string.Empty)
+                        + items[ResultsListBox.SelectedIndex].GetValue("id")
+                    )
+                    .Trim()
+                );
+        }
 
-			for (int i = 0; i < items.Count; i++)
-			{
-				copyStr += (
-					items[i].GetValue("name")
-					+ " - "
-					+ (IdPrefixTextBox.Text != string.Empty ? IdPrefixTextBox.Text + " " : string.Empty)
-					+ items[i].GetValue("id")
-				)
-				.Trim() + (i < items.Count ? "\n" : string.Empty);
-			}
+        private void AllNameIdToClipboard_Click(object sender, EventArgs e)
+        {
+            string copyStr = string.Empty;
 
-			Clipboard.SetText(copyStr);
-		}
+            for (int i = 0; i < items.Count; i++)
+            {
+                copyStr += (
+                    items[i].GetValue("name")
+                    + " - "
+                    + (IdPrefixTextBox.Text != string.Empty ? IdPrefixTextBox.Text + " " : string.Empty)
+                    + items[i].GetValue("id")
+                )
+                .Trim() + (i < items.Count ? "\n" : string.Empty);
+            }
 
-		private void SortCapacityBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.ClothingStorage));
+            Clipboard.SetText(copyStr);
+        }
 
-			UpdateItemList();
-		}
+        private void SortCapacityBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.ClothingStorage));
 
-		private void SortProtectionBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.ClothingProtection));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
+        private void SortProtectionBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.ClothingProtection));
 
-		private void SortDamagePlayersBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Damage));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
+        private void SortDamagePlayersBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Damage));
 
-		private void MixBtn_Click(object sender, EventArgs e)
-		{
-			Random random = new Random();
-			items.Sort((a, b) => random.Next(int.MinValue, int.MaxValue));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
+        private void MixBtn_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            items.Sort((a, b) => random.Next(int.MinValue, int.MaxValue));
 
-		private void SortDamageBuildingsBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.StructureDamage));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
+        private void SortDamageBuildingsBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.StructureDamage));
 
-		private void NameLabel_Click(object sender, EventArgs e) => NameTextBox.Focus();
+            UpdateItemList();
+        }
 
-		private void IdLabel_Click(object sender, EventArgs e) => IdTextBox.Focus();
+        private void NameLabel_Click(object sender, EventArgs e) => NameTextBox.Focus();
 
-		private void SortVehicleHealthBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.VehicleHealth));
+        private void IdLabel_Click(object sender, EventArgs e) => IdTextBox.Focus();
 
-			UpdateItemList();
-		}
+        private void SortVehicleHealthBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.VehicleHealth));
 
-		private void SortBarricadeCapacityBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.StructureCapacity));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
+        private void SortBarricadeCapacityBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.StructureCapacity));
 
-		private void SortByBuildingHealthBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.BuildingHealth));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
+        private void SortByBuildingHealthBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.BuildingHealth));
 
-		private void SortByShakeBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Shake));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
+        private void SortBySpreadBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Spread));
 
-		private void SortByBarrelDamageBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.BarrelDamage));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
+        private void SortByBarrelDamageBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.BarrelDamage));
 
-		private void LinkedAmmoBtn_Click(object sender, EventArgs e)
-		{
-			if (selectedItem != null) {
-				List<Item> linked = selectedItem.GetLinked("ammo");
-				if (linked != null && linked.Count > 0) {
-					linked.Sort((a, b) => a.CompareTo(b, Core.CompareModes.AmmoAmount));
-					new ItemList(linked).Show();
-				} else {
-					MessageBox.Show("This item doesn't have linked");
-				}
-			}
-		}
+            UpdateItemList();
+        }
 
-		private void LinkedModulesBtn_Click(object sender, EventArgs e)
-		{
-			if (selectedItem != null)
-			{
-				List<Item> linked = selectedItem.GetLinked("modules");
-				if (linked != null && linked.Count > 0)
-					new ItemList(linked).Show();
-				else
-					MessageBox.Show("This item doesn't have linked");
-			}
-		}
+        private void LinkedAmmoBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedItem != null)
+            {
+                List<Item> linked = selectedItem.GetLinked("ammo");
+                if (linked != null && linked.Count > 0)
+                {
+                    linked.Sort((a, b) => a.CompareTo(b, Core.CompareModes.AmmoAmount));
+                    new ItemList(linked).Show();
+                }
+                else
+                {
+                    MessageBox.Show("This item doesn't have linked");
+                }
+            }
+        }
 
-		private void LinkedGunsBtn_Click(object sender, EventArgs e)
-		{
-			if (selectedItem != null)
-			{
-				List<Item> linked = selectedItem.GetLinked("guns");
-				if (linked != null && linked.Count > 0) {
-					linked.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Damage));
-					new ItemList(linked).Show();
-				} else {
-					MessageBox.Show("This item doesn't have linked");
-				}
-			}
-		}
+        private void LinkedModulesBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedItem != null)
+            {
+                List<Item> linked = selectedItem.GetLinked("modules");
+                if (linked != null && linked.Count > 0)
+                    new ItemList(linked).Show();
+                else
+                    MessageBox.Show("This item doesn't have linked");
+            }
+        }
 
-		private void SortByAmmoAmountBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.AmmoAmount));
+        private void LinkedGunsBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedItem != null)
+            {
+                List<Item> linked = selectedItem.GetLinked("guns");
+                if (linked != null && linked.Count > 0)
+                {
+                    linked.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Damage));
+                    new ItemList(linked).Show();
+                }
+                else
+                {
+                    MessageBox.Show("This item doesn't have linked");
+                }
+            }
+        }
 
-			UpdateItemList();
-		}
+        private void SortByAmmoAmountBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.AmmoAmount));
 
-		private void SortByPelletsBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => (b.GetValue("type") == "Magazine" ? b.GetValue("pellets", "1").ToInt() : 1)
-			.CompareTo(a.GetValue("type") == "Magazine" ? a.GetValue("pellets", "1").ToInt() : 1));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
+        private void SortByPelletsBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => (b.GetValue("type") == "Magazine" ? b.GetValue("pellets", "1").ToInt() : 1)
+            .CompareTo(a.GetValue("type") == "Magazine" ? a.GetValue("pellets", "1").ToInt() : 1));
 
-		private void SortByVolumeBtn_Click(object sender, EventArgs e)
-		{
-			items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.BarrelVolume));
+            UpdateItemList();
+        }
 
-			UpdateItemList();
-		}
-	}
+        private void SortByRecoilYBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Recoil_Y));
+
+            UpdateItemList();
+        }
+
+        private void SortByRecoilXBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Recoil_X));
+
+            UpdateItemList();
+        }
+
+        private void SortByEMSMBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.EMSM));
+
+            UpdateItemList();
+        }
+
+        private void SortByMSMBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.MSM));
+
+            UpdateItemList();
+        }
+
+        private void SortByRangeBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Range));
+
+            UpdateItemList();
+        }
+
+        private void SortByFirerateBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.Firerate));
+
+            UpdateItemList();
+        }
+
+        private void SortByVolumeBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.BarrelVolume));
+
+            UpdateItemList();
+        }
+    }
 }

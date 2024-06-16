@@ -1,4 +1,6 @@
-﻿namespace UIF
+﻿using System.Windows.Forms;
+
+namespace UIF
 {
     partial class ItemList
     {
@@ -40,20 +42,26 @@
             this.IdLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.IdToClipboard = new System.Windows.Forms.Button();
-            this.ItemStatsGroupBox = new System.Windows.Forms.GroupBox();
+            this.ItemStatsPanel = new System.Windows.Forms.Panel();
             this.LinkedGunsBtn = new System.Windows.Forms.Button();
             this.LinkedModulesBtn = new System.Windows.Forms.Button();
             this.LinkedAmmoBtn = new System.Windows.Forms.Button();
+            this.LinkedGunsLabel = new System.Windows.Forms.Label();
+            this.LinkedModulesLabel = new System.Windows.Forms.Label();
+            this.firerate = new System.Windows.Forms.TextBox();
+            this.movement_speed_multiplier = new System.Windows.Forms.TextBox();
+            this.equipable_movement_speed_multiplier = new System.Windows.Forms.TextBox();
+            this.recoil_y = new System.Windows.Forms.TextBox();
+            this.recoil_x = new System.Windows.Forms.TextBox();
+            this.Recoil_XYLabel = new System.Windows.Forms.Label();
             this.pellets = new System.Windows.Forms.TextBox();
             this.PelletsLabel = new System.Windows.Forms.Label();
-            this.LinkedModulesLabel = new System.Windows.Forms.Label();
-            this.LinkedGunsLabel = new System.Windows.Forms.Label();
             this.LinkedAmmoLabel = new System.Windows.Forms.Label();
             this.amount = new System.Windows.Forms.TextBox();
             this.AmmoAmountLabel = new System.Windows.Forms.Label();
             this.damage = new System.Windows.Forms.TextBox();
             this.volume = new System.Windows.Forms.TextBox();
-            this.shake = new System.Windows.Forms.TextBox();
+            this.spread = new System.Windows.Forms.TextBox();
             this.health = new System.Windows.Forms.TextBox();
             this.engine = new System.Windows.Forms.TextBox();
             this.type = new System.Windows.Forms.TextBox();
@@ -66,12 +74,14 @@
             this.armor = new System.Windows.Forms.TextBox();
             this.BarrelDamageLabel = new System.Windows.Forms.Label();
             this.VolumeLabel = new System.Windows.Forms.Label();
-            this.ShakeLabel = new System.Windows.Forms.Label();
+            this.EMSMLabel = new System.Windows.Forms.Label();
+            this.SpreadLabel = new System.Windows.Forms.Label();
             this.ItemHealthLabel = new System.Windows.Forms.Label();
             this.EngineLabel = new System.Windows.Forms.Label();
             this.RangeLabel = new System.Windows.Forms.Label();
             this.TypeLabel = new System.Windows.Forms.Label();
             this.BuildingsDamageLabel = new System.Windows.Forms.Label();
+            this.FirerateLabel = new System.Windows.Forms.Label();
             this.UseableLabel = new System.Windows.Forms.Label();
             this.PlayerDamageLabel = new System.Windows.Forms.Label();
             this.BodyDamageLabel = new System.Windows.Forms.Label();
@@ -83,19 +93,26 @@
             this.SortCapacityBtn = new System.Windows.Forms.Button();
             this.SortProtectionBtn = new System.Windows.Forms.Button();
             this.SortingGroupBox = new System.Windows.Forms.GroupBox();
+            this.SortByRangeBtn = new System.Windows.Forms.Button();
+            this.SortByFirerateBtn = new System.Windows.Forms.Button();
+            this.SortByRecoilYBtn = new System.Windows.Forms.Button();
+            this.SortByRecoilXBtn = new System.Windows.Forms.Button();
+            this.SortByMSMBtn = new System.Windows.Forms.Button();
+            this.SortByEMSMBtn = new System.Windows.Forms.Button();
             this.SortByPelletsBtn = new System.Windows.Forms.Button();
             this.SortByAmmoAmountBtn = new System.Windows.Forms.Button();
             this.SortByLabel = new System.Windows.Forms.Label();
             this.SortByBarrelDamageBtn = new System.Windows.Forms.Button();
             this.SortByVolumeBtn = new System.Windows.Forms.Button();
-            this.SortByShakeBtn = new System.Windows.Forms.Button();
+            this.SortBySpreadBtn = new System.Windows.Forms.Button();
             this.SortByBuildingHealthBtn = new System.Windows.Forms.Button();
             this.SortBarricadeCapacityBtn = new System.Windows.Forms.Button();
             this.SortVehicleHealthBtn = new System.Windows.Forms.Button();
             this.SortDamageBuildingsBtn = new System.Windows.Forms.Button();
             this.MixBtn = new System.Windows.Forms.Button();
+            this.ItemStatsLabel = new System.Windows.Forms.Label();
             this.InfoGroupBox.SuspendLayout();
-            this.ItemStatsGroupBox.SuspendLayout();
+            this.ItemStatsPanel.SuspendLayout();
             this.SortingGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,7 +131,7 @@
             this.ResultsListBox.FormattingEnabled = true;
             this.ResultsListBox.Location = new System.Drawing.Point(12, 29);
             this.ResultsListBox.Name = "ResultsListBox";
-            this.ResultsListBox.Size = new System.Drawing.Size(167, 550);
+            this.ResultsListBox.Size = new System.Drawing.Size(173, 602);
             this.ResultsListBox.TabIndex = 6;
             this.ResultsListBox.TabStop = false;
             this.ResultsListBox.SelectedIndexChanged += new System.EventHandler(this.ResultsListBox_SelectedIndexChanged);
@@ -131,7 +148,7 @@
             this.InfoGroupBox.Controls.Add(this.IdToClipboard);
             this.InfoGroupBox.Location = new System.Drawing.Point(185, 29);
             this.InfoGroupBox.Name = "InfoGroupBox";
-            this.InfoGroupBox.Size = new System.Drawing.Size(344, 147);
+            this.InfoGroupBox.Size = new System.Drawing.Size(344, 137);
             this.InfoGroupBox.TabIndex = 5;
             this.InfoGroupBox.TabStop = false;
             this.InfoGroupBox.Text = "Info";
@@ -221,87 +238,181 @@
             this.IdToClipboard.UseVisualStyleBackColor = true;
             this.IdToClipboard.Click += new System.EventHandler(this.IdToClipboard_Click);
             // 
-            // ItemStatsGroupBox
+            // ItemStatsPanel
             // 
-            this.ItemStatsGroupBox.Controls.Add(this.LinkedGunsBtn);
-            this.ItemStatsGroupBox.Controls.Add(this.LinkedModulesBtn);
-            this.ItemStatsGroupBox.Controls.Add(this.LinkedAmmoBtn);
-            this.ItemStatsGroupBox.Controls.Add(this.pellets);
-            this.ItemStatsGroupBox.Controls.Add(this.PelletsLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.LinkedModulesLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.LinkedGunsLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.LinkedAmmoLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.amount);
-            this.ItemStatsGroupBox.Controls.Add(this.AmmoAmountLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.damage);
-            this.ItemStatsGroupBox.Controls.Add(this.volume);
-            this.ItemStatsGroupBox.Controls.Add(this.shake);
-            this.ItemStatsGroupBox.Controls.Add(this.health);
-            this.ItemStatsGroupBox.Controls.Add(this.engine);
-            this.ItemStatsGroupBox.Controls.Add(this.type);
-            this.ItemStatsGroupBox.Controls.Add(this.useable);
-            this.ItemStatsGroupBox.Controls.Add(this.range);
-            this.ItemStatsGroupBox.Controls.Add(this.structure_damage);
-            this.ItemStatsGroupBox.Controls.Add(this.player_damage);
-            this.ItemStatsGroupBox.Controls.Add(this.player_spine_damage);
-            this.ItemStatsGroupBox.Controls.Add(this.player_skull_damage);
-            this.ItemStatsGroupBox.Controls.Add(this.armor);
-            this.ItemStatsGroupBox.Controls.Add(this.BarrelDamageLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.VolumeLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.ShakeLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.ItemHealthLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.EngineLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.RangeLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.TypeLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.BuildingsDamageLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.UseableLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.PlayerDamageLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.BodyDamageLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.HeadDamageLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.ProtectionLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.ItemCapacityLabel);
-            this.ItemStatsGroupBox.Controls.Add(this.item_capacity);
-            this.ItemStatsGroupBox.Location = new System.Drawing.Point(185, 164);
-            this.ItemStatsGroupBox.Name = "ItemStatsGroupBox";
-            this.ItemStatsGroupBox.Size = new System.Drawing.Size(344, 414);
-            this.ItemStatsGroupBox.TabIndex = 4;
-            this.ItemStatsGroupBox.TabStop = false;
-            this.ItemStatsGroupBox.Text = "Item Stats";
+            this.ItemStatsPanel.AutoScroll = true;
+            this.ItemStatsPanel.AutoScrollMargin = new System.Drawing.Size(0, 1000);
+            this.ItemStatsPanel.Controls.Add(this.LinkedGunsBtn);
+            this.ItemStatsPanel.Controls.Add(this.LinkedModulesBtn);
+            this.ItemStatsPanel.Controls.Add(this.LinkedAmmoBtn);
+            this.ItemStatsPanel.Controls.Add(this.LinkedGunsLabel);
+            this.ItemStatsPanel.Controls.Add(this.LinkedModulesLabel);
+            this.ItemStatsPanel.Controls.Add(this.firerate);
+            this.ItemStatsPanel.Controls.Add(this.movement_speed_multiplier);
+            this.ItemStatsPanel.Controls.Add(this.equipable_movement_speed_multiplier);
+            this.ItemStatsPanel.Controls.Add(this.recoil_y);
+            this.ItemStatsPanel.Controls.Add(this.recoil_x);
+            this.ItemStatsPanel.Controls.Add(this.Recoil_XYLabel);
+            this.ItemStatsPanel.Controls.Add(this.pellets);
+            this.ItemStatsPanel.Controls.Add(this.PelletsLabel);
+            this.ItemStatsPanel.Controls.Add(this.LinkedAmmoLabel);
+            this.ItemStatsPanel.Controls.Add(this.amount);
+            this.ItemStatsPanel.Controls.Add(this.AmmoAmountLabel);
+            this.ItemStatsPanel.Controls.Add(this.damage);
+            this.ItemStatsPanel.Controls.Add(this.volume);
+            this.ItemStatsPanel.Controls.Add(this.spread);
+            this.ItemStatsPanel.Controls.Add(this.health);
+            this.ItemStatsPanel.Controls.Add(this.engine);
+            this.ItemStatsPanel.Controls.Add(this.type);
+            this.ItemStatsPanel.Controls.Add(this.useable);
+            this.ItemStatsPanel.Controls.Add(this.range);
+            this.ItemStatsPanel.Controls.Add(this.structure_damage);
+            this.ItemStatsPanel.Controls.Add(this.player_damage);
+            this.ItemStatsPanel.Controls.Add(this.player_spine_damage);
+            this.ItemStatsPanel.Controls.Add(this.player_skull_damage);
+            this.ItemStatsPanel.Controls.Add(this.armor);
+            this.ItemStatsPanel.Controls.Add(this.BarrelDamageLabel);
+            this.ItemStatsPanel.Controls.Add(this.VolumeLabel);
+            this.ItemStatsPanel.Controls.Add(this.EMSMLabel);
+            this.ItemStatsPanel.Controls.Add(this.SpreadLabel);
+            this.ItemStatsPanel.Controls.Add(this.ItemHealthLabel);
+            this.ItemStatsPanel.Controls.Add(this.EngineLabel);
+            this.ItemStatsPanel.Controls.Add(this.RangeLabel);
+            this.ItemStatsPanel.Controls.Add(this.TypeLabel);
+            this.ItemStatsPanel.Controls.Add(this.BuildingsDamageLabel);
+            this.ItemStatsPanel.Controls.Add(this.FirerateLabel);
+            this.ItemStatsPanel.Controls.Add(this.UseableLabel);
+            this.ItemStatsPanel.Controls.Add(this.PlayerDamageLabel);
+            this.ItemStatsPanel.Controls.Add(this.BodyDamageLabel);
+            this.ItemStatsPanel.Controls.Add(this.HeadDamageLabel);
+            this.ItemStatsPanel.Controls.Add(this.ProtectionLabel);
+            this.ItemStatsPanel.Controls.Add(this.ItemCapacityLabel);
+            this.ItemStatsPanel.Controls.Add(this.item_capacity);
+            this.ItemStatsPanel.Location = new System.Drawing.Point(185, 164);
+            this.ItemStatsPanel.Name = "ItemStatsPanel";
+            this.ItemStatsPanel.Size = new System.Drawing.Size(344, 467);
+            this.ItemStatsPanel.TabIndex = 4;
             // 
             // LinkedGunsBtn
             // 
-            this.LinkedGunsBtn.Location = new System.Drawing.Point(258, 384);
+            this.LinkedGunsBtn.Location = new System.Drawing.Point(244, 441);
             this.LinkedGunsBtn.Name = "LinkedGunsBtn";
-            this.LinkedGunsBtn.Size = new System.Drawing.Size(80, 23);
+            this.LinkedGunsBtn.Size = new System.Drawing.Size(81, 22);
             this.LinkedGunsBtn.TabIndex = 34;
-            this.LinkedGunsBtn.Text = "Click!";
+            this.LinkedGunsBtn.Text = "Guns";
             this.LinkedGunsBtn.UseVisualStyleBackColor = true;
             this.LinkedGunsBtn.Click += new System.EventHandler(this.LinkedGunsBtn_Click);
             // 
             // LinkedModulesBtn
             // 
-            this.LinkedModulesBtn.Location = new System.Drawing.Point(258, 362);
+            this.LinkedModulesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.LinkedModulesBtn.Location = new System.Drawing.Point(244, 420);
             this.LinkedModulesBtn.Name = "LinkedModulesBtn";
-            this.LinkedModulesBtn.Size = new System.Drawing.Size(80, 23);
+            this.LinkedModulesBtn.Size = new System.Drawing.Size(81, 22);
             this.LinkedModulesBtn.TabIndex = 36;
-            this.LinkedModulesBtn.Text = "Click!";
+            this.LinkedModulesBtn.Text = "Modules";
             this.LinkedModulesBtn.UseVisualStyleBackColor = true;
             this.LinkedModulesBtn.Click += new System.EventHandler(this.LinkedModulesBtn_Click);
             // 
             // LinkedAmmoBtn
             // 
-            this.LinkedAmmoBtn.Location = new System.Drawing.Point(258, 340);
+            this.LinkedAmmoBtn.Location = new System.Drawing.Point(244, 399);
             this.LinkedAmmoBtn.Name = "LinkedAmmoBtn";
-            this.LinkedAmmoBtn.Size = new System.Drawing.Size(80, 23);
+            this.LinkedAmmoBtn.Size = new System.Drawing.Size(81, 22);
             this.LinkedAmmoBtn.TabIndex = 32;
-            this.LinkedAmmoBtn.Text = "Click!";
+            this.LinkedAmmoBtn.Text = "Ammo";
             this.LinkedAmmoBtn.UseVisualStyleBackColor = true;
             this.LinkedAmmoBtn.Click += new System.EventHandler(this.LinkedAmmoBtn_Click);
+            // 
+            // LinkedGunsLabel
+            // 
+            this.LinkedGunsLabel.AutoSize = true;
+            this.LinkedGunsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LinkedGunsLabel.Location = new System.Drawing.Point(6, 441);
+            this.LinkedGunsLabel.Name = "LinkedGunsLabel";
+            this.LinkedGunsLabel.Size = new System.Drawing.Size(99, 20);
+            this.LinkedGunsLabel.TabIndex = 45;
+            this.LinkedGunsLabel.Text = "Linked guns:";
+            // 
+            // LinkedModulesLabel
+            // 
+            this.LinkedModulesLabel.AutoSize = true;
+            this.LinkedModulesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LinkedModulesLabel.Location = new System.Drawing.Point(6, 420);
+            this.LinkedModulesLabel.Name = "LinkedModulesLabel";
+            this.LinkedModulesLabel.Size = new System.Drawing.Size(124, 20);
+            this.LinkedModulesLabel.TabIndex = 44;
+            this.LinkedModulesLabel.Text = "Linked modules:";
+            // 
+            // firerate
+            // 
+            this.firerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.firerate.Location = new System.Drawing.Point(245, 377);
+            this.firerate.Name = "firerate";
+            this.firerate.ReadOnly = true;
+            this.firerate.Size = new System.Drawing.Size(79, 22);
+            this.firerate.TabIndex = 8;
+            this.firerate.TabStop = false;
+            this.firerate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // movement_speed_multiplier
+            // 
+            this.movement_speed_multiplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.movement_speed_multiplier.Location = new System.Drawing.Point(284, 357);
+            this.movement_speed_multiplier.Name = "movement_speed_multiplier";
+            this.movement_speed_multiplier.ReadOnly = true;
+            this.movement_speed_multiplier.Size = new System.Drawing.Size(40, 22);
+            this.movement_speed_multiplier.TabIndex = 43;
+            this.movement_speed_multiplier.TabStop = false;
+            this.movement_speed_multiplier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // equipable_movement_speed_multiplier
+            // 
+            this.equipable_movement_speed_multiplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.equipable_movement_speed_multiplier.Location = new System.Drawing.Point(245, 357);
+            this.equipable_movement_speed_multiplier.Name = "equipable_movement_speed_multiplier";
+            this.equipable_movement_speed_multiplier.ReadOnly = true;
+            this.equipable_movement_speed_multiplier.Size = new System.Drawing.Size(40, 22);
+            this.equipable_movement_speed_multiplier.TabIndex = 41;
+            this.equipable_movement_speed_multiplier.TabStop = false;
+            this.equipable_movement_speed_multiplier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // recoil_y
+            // 
+            this.recoil_y.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.recoil_y.Location = new System.Drawing.Point(284, 337);
+            this.recoil_y.Name = "recoil_y";
+            this.recoil_y.ReadOnly = true;
+            this.recoil_y.Size = new System.Drawing.Size(40, 22);
+            this.recoil_y.TabIndex = 39;
+            this.recoil_y.TabStop = false;
+            this.recoil_y.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // recoil_x
+            // 
+            this.recoil_x.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.recoil_x.Location = new System.Drawing.Point(245, 337);
+            this.recoil_x.Name = "recoil_x";
+            this.recoil_x.ReadOnly = true;
+            this.recoil_x.Size = new System.Drawing.Size(40, 22);
+            this.recoil_x.TabIndex = 40;
+            this.recoil_x.TabStop = false;
+            this.recoil_x.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Recoil_XYLabel
+            // 
+            this.Recoil_XYLabel.AutoSize = true;
+            this.Recoil_XYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Recoil_XYLabel.Location = new System.Drawing.Point(6, 336);
+            this.Recoil_XYLabel.Name = "Recoil_XYLabel";
+            this.Recoil_XYLabel.Size = new System.Drawing.Size(87, 20);
+            this.Recoil_XYLabel.TabIndex = 41;
+            this.Recoil_XYLabel.Text = "Recoil X/Y:";
             // 
             // pellets
             // 
             this.pellets.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pellets.Location = new System.Drawing.Point(259, 318);
+            this.pellets.Location = new System.Drawing.Point(245, 317);
             this.pellets.Name = "pellets";
             this.pellets.ReadOnly = true;
             this.pellets.Size = new System.Drawing.Size(79, 22);
@@ -319,31 +430,11 @@
             this.PelletsLabel.TabIndex = 38;
             this.PelletsLabel.Text = "Pellets:";
             // 
-            // LinkedModulesLabel
-            // 
-            this.LinkedModulesLabel.AutoSize = true;
-            this.LinkedModulesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LinkedModulesLabel.Location = new System.Drawing.Point(6, 356);
-            this.LinkedModulesLabel.Name = "LinkedModulesLabel";
-            this.LinkedModulesLabel.Size = new System.Drawing.Size(124, 20);
-            this.LinkedModulesLabel.TabIndex = 35;
-            this.LinkedModulesLabel.Text = "Linked modules:";
-            // 
-            // LinkedGunsLabel
-            // 
-            this.LinkedGunsLabel.AutoSize = true;
-            this.LinkedGunsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LinkedGunsLabel.Location = new System.Drawing.Point(6, 376);
-            this.LinkedGunsLabel.Name = "LinkedGunsLabel";
-            this.LinkedGunsLabel.Size = new System.Drawing.Size(99, 20);
-            this.LinkedGunsLabel.TabIndex = 33;
-            this.LinkedGunsLabel.Text = "Linked guns:";
-            // 
             // LinkedAmmoLabel
             // 
             this.LinkedAmmoLabel.AutoSize = true;
             this.LinkedAmmoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LinkedAmmoLabel.Location = new System.Drawing.Point(6, 336);
+            this.LinkedAmmoLabel.Location = new System.Drawing.Point(6, 399);
             this.LinkedAmmoLabel.Name = "LinkedAmmoLabel";
             this.LinkedAmmoLabel.Size = new System.Drawing.Size(108, 20);
             this.LinkedAmmoLabel.TabIndex = 31;
@@ -352,7 +443,7 @@
             // amount
             // 
             this.amount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.amount.Location = new System.Drawing.Point(259, 298);
+            this.amount.Location = new System.Drawing.Point(245, 297);
             this.amount.Name = "amount";
             this.amount.ReadOnly = true;
             this.amount.Size = new System.Drawing.Size(79, 22);
@@ -373,7 +464,7 @@
             // damage
             // 
             this.damage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.damage.Location = new System.Drawing.Point(259, 278);
+            this.damage.Location = new System.Drawing.Point(245, 277);
             this.damage.Name = "damage";
             this.damage.ReadOnly = true;
             this.damage.Size = new System.Drawing.Size(79, 22);
@@ -384,7 +475,7 @@
             // volume
             // 
             this.volume.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.volume.Location = new System.Drawing.Point(259, 258);
+            this.volume.Location = new System.Drawing.Point(245, 257);
             this.volume.Name = "volume";
             this.volume.ReadOnly = true;
             this.volume.Size = new System.Drawing.Size(79, 22);
@@ -392,21 +483,21 @@
             this.volume.TabStop = false;
             this.volume.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // shake
+            // spread
             // 
-            this.shake.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shake.Location = new System.Drawing.Point(259, 238);
-            this.shake.Name = "shake";
-            this.shake.ReadOnly = true;
-            this.shake.Size = new System.Drawing.Size(79, 22);
-            this.shake.TabIndex = 22;
-            this.shake.TabStop = false;
-            this.shake.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.spread.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.spread.Location = new System.Drawing.Point(245, 237);
+            this.spread.Name = "spread";
+            this.spread.ReadOnly = true;
+            this.spread.Size = new System.Drawing.Size(79, 22);
+            this.spread.TabIndex = 22;
+            this.spread.TabStop = false;
+            this.spread.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // health
             // 
             this.health.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.health.Location = new System.Drawing.Point(259, 218);
+            this.health.Location = new System.Drawing.Point(245, 217);
             this.health.Name = "health";
             this.health.ReadOnly = true;
             this.health.Size = new System.Drawing.Size(79, 22);
@@ -417,7 +508,7 @@
             // engine
             // 
             this.engine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.engine.Location = new System.Drawing.Point(259, 198);
+            this.engine.Location = new System.Drawing.Point(245, 197);
             this.engine.Name = "engine";
             this.engine.ReadOnly = true;
             this.engine.Size = new System.Drawing.Size(79, 22);
@@ -428,7 +519,7 @@
             // type
             // 
             this.type.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.type.Location = new System.Drawing.Point(259, 178);
+            this.type.Location = new System.Drawing.Point(245, 177);
             this.type.Name = "type";
             this.type.ReadOnly = true;
             this.type.Size = new System.Drawing.Size(79, 22);
@@ -439,7 +530,7 @@
             // useable
             // 
             this.useable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.useable.Location = new System.Drawing.Point(259, 158);
+            this.useable.Location = new System.Drawing.Point(245, 157);
             this.useable.Name = "useable";
             this.useable.ReadOnly = true;
             this.useable.Size = new System.Drawing.Size(79, 22);
@@ -450,7 +541,7 @@
             // range
             // 
             this.range.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.range.Location = new System.Drawing.Point(259, 138);
+            this.range.Location = new System.Drawing.Point(245, 137);
             this.range.Name = "range";
             this.range.ReadOnly = true;
             this.range.Size = new System.Drawing.Size(79, 22);
@@ -461,7 +552,7 @@
             // structure_damage
             // 
             this.structure_damage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.structure_damage.Location = new System.Drawing.Point(259, 118);
+            this.structure_damage.Location = new System.Drawing.Point(245, 117);
             this.structure_damage.Name = "structure_damage";
             this.structure_damage.ReadOnly = true;
             this.structure_damage.Size = new System.Drawing.Size(79, 22);
@@ -472,7 +563,7 @@
             // player_damage
             // 
             this.player_damage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.player_damage.Location = new System.Drawing.Point(259, 98);
+            this.player_damage.Location = new System.Drawing.Point(245, 97);
             this.player_damage.Name = "player_damage";
             this.player_damage.ReadOnly = true;
             this.player_damage.Size = new System.Drawing.Size(79, 22);
@@ -483,7 +574,7 @@
             // player_spine_damage
             // 
             this.player_spine_damage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.player_spine_damage.Location = new System.Drawing.Point(259, 78);
+            this.player_spine_damage.Location = new System.Drawing.Point(245, 77);
             this.player_spine_damage.Name = "player_spine_damage";
             this.player_spine_damage.ReadOnly = true;
             this.player_spine_damage.Size = new System.Drawing.Size(79, 22);
@@ -494,7 +585,7 @@
             // player_skull_damage
             // 
             this.player_skull_damage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.player_skull_damage.Location = new System.Drawing.Point(259, 58);
+            this.player_skull_damage.Location = new System.Drawing.Point(245, 57);
             this.player_skull_damage.Name = "player_skull_damage";
             this.player_skull_damage.ReadOnly = true;
             this.player_skull_damage.Size = new System.Drawing.Size(79, 22);
@@ -505,7 +596,7 @@
             // armor
             // 
             this.armor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.armor.Location = new System.Drawing.Point(259, 38);
+            this.armor.Location = new System.Drawing.Point(245, 37);
             this.armor.Name = "armor";
             this.armor.ReadOnly = true;
             this.armor.Size = new System.Drawing.Size(79, 22);
@@ -533,15 +624,25 @@
             this.VolumeLabel.TabIndex = 25;
             this.VolumeLabel.Text = "Suppressor volume multiplier:";
             // 
-            // ShakeLabel
+            // EMSMLabel
             // 
-            this.ShakeLabel.AutoSize = true;
-            this.ShakeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ShakeLabel.Location = new System.Drawing.Point(6, 236);
-            this.ShakeLabel.Name = "ShakeLabel";
-            this.ShakeLabel.Size = new System.Drawing.Size(202, 20);
-            this.ShakeLabel.TabIndex = 23;
-            this.ShakeLabel.Text = "Grip/Barrel shake multiplier:";
+            this.EMSMLabel.AutoSize = true;
+            this.EMSMLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EMSMLabel.Location = new System.Drawing.Point(6, 356);
+            this.EMSMLabel.Name = "EMSMLabel";
+            this.EMSMLabel.Size = new System.Drawing.Size(225, 20);
+            this.EMSMLabel.TabIndex = 42;
+            this.EMSMLabel.Text = "Movement speed (items/cloth):";
+            // 
+            // SpreadLabel
+            // 
+            this.SpreadLabel.AutoSize = true;
+            this.SpreadLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SpreadLabel.Location = new System.Drawing.Point(6, 236);
+            this.SpreadLabel.Name = "SpreadLabel";
+            this.SpreadLabel.Size = new System.Drawing.Size(131, 20);
+            this.SpreadLabel.TabIndex = 23;
+            this.SpreadLabel.Text = "Spread multiplier:";
             // 
             // ItemHealthLabel
             // 
@@ -592,6 +693,16 @@
             this.BuildingsDamageLabel.Size = new System.Drawing.Size(158, 20);
             this.BuildingsDamageLabel.TabIndex = 6;
             this.BuildingsDamageLabel.Text = "Damage to buildings:";
+            // 
+            // FirerateLabel
+            // 
+            this.FirerateLabel.AutoSize = true;
+            this.FirerateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FirerateLabel.Location = new System.Drawing.Point(6, 376);
+            this.FirerateLabel.Name = "FirerateLabel";
+            this.FirerateLabel.Size = new System.Drawing.Size(68, 20);
+            this.FirerateLabel.TabIndex = 10;
+            this.FirerateLabel.Text = "Firerate:";
             // 
             // UseableLabel
             // 
@@ -649,14 +760,14 @@
             this.ItemCapacityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ItemCapacityLabel.Location = new System.Drawing.Point(6, 16);
             this.ItemCapacityLabel.Name = "ItemCapacityLabel";
-            this.ItemCapacityLabel.Size = new System.Drawing.Size(247, 20);
+            this.ItemCapacityLabel.Size = new System.Drawing.Size(226, 20);
             this.ItemCapacityLabel.TabIndex = 17;
-            this.ItemCapacityLabel.Text = "Barricade/clothing capacity (cells):";
+            this.ItemCapacityLabel.Text = "Barricade/cloth capacity (cells):";
             // 
             // item_capacity
             // 
             this.item_capacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.item_capacity.Location = new System.Drawing.Point(259, 18);
+            this.item_capacity.Location = new System.Drawing.Point(245, 17);
             this.item_capacity.Name = "item_capacity";
             this.item_capacity.ReadOnly = true;
             this.item_capacity.Size = new System.Drawing.Size(79, 22);
@@ -699,12 +810,18 @@
             // 
             // SortingGroupBox
             // 
+            this.SortingGroupBox.Controls.Add(this.SortByRangeBtn);
+            this.SortingGroupBox.Controls.Add(this.SortByFirerateBtn);
+            this.SortingGroupBox.Controls.Add(this.SortByRecoilYBtn);
+            this.SortingGroupBox.Controls.Add(this.SortByRecoilXBtn);
+            this.SortingGroupBox.Controls.Add(this.SortByMSMBtn);
+            this.SortingGroupBox.Controls.Add(this.SortByEMSMBtn);
             this.SortingGroupBox.Controls.Add(this.SortByPelletsBtn);
             this.SortingGroupBox.Controls.Add(this.SortByAmmoAmountBtn);
             this.SortingGroupBox.Controls.Add(this.SortByLabel);
             this.SortingGroupBox.Controls.Add(this.SortByBarrelDamageBtn);
             this.SortingGroupBox.Controls.Add(this.SortByVolumeBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByShakeBtn);
+            this.SortingGroupBox.Controls.Add(this.SortBySpreadBtn);
             this.SortingGroupBox.Controls.Add(this.SortByBuildingHealthBtn);
             this.SortingGroupBox.Controls.Add(this.SortBarricadeCapacityBtn);
             this.SortingGroupBox.Controls.Add(this.SortVehicleHealthBtn);
@@ -715,10 +832,76 @@
             this.SortingGroupBox.Controls.Add(this.SortDamagePlayersBtn);
             this.SortingGroupBox.Location = new System.Drawing.Point(536, 29);
             this.SortingGroupBox.Name = "SortingGroupBox";
-            this.SortingGroupBox.Size = new System.Drawing.Size(191, 549);
+            this.SortingGroupBox.Size = new System.Drawing.Size(191, 604);
             this.SortingGroupBox.TabIndex = 0;
             this.SortingGroupBox.TabStop = false;
             this.SortingGroupBox.Text = "Sorting";
+            // 
+            // SortByRangeBtn
+            // 
+            this.SortByRangeBtn.Location = new System.Drawing.Point(9, 543);
+            this.SortByRangeBtn.Name = "SortByRangeBtn";
+            this.SortByRangeBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByRangeBtn.TabIndex = 18;
+            this.SortByRangeBtn.TabStop = false;
+            this.SortByRangeBtn.Text = "Range";
+            this.SortByRangeBtn.UseVisualStyleBackColor = true;
+            this.SortByRangeBtn.Click += new System.EventHandler(this.SortByRangeBtn_Click);
+            // 
+            // SortByFirerateBtn
+            // 
+            this.SortByFirerateBtn.Location = new System.Drawing.Point(9, 514);
+            this.SortByFirerateBtn.Name = "SortByFirerateBtn";
+            this.SortByFirerateBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByFirerateBtn.TabIndex = 18;
+            this.SortByFirerateBtn.TabStop = false;
+            this.SortByFirerateBtn.Text = "Firerate";
+            this.SortByFirerateBtn.UseVisualStyleBackColor = true;
+            this.SortByFirerateBtn.Click += new System.EventHandler(this.SortByFirerateBtn_Click);
+            // 
+            // SortByRecoilYBtn
+            // 
+            this.SortByRecoilYBtn.Location = new System.Drawing.Point(9, 427);
+            this.SortByRecoilYBtn.Name = "SortByRecoilYBtn";
+            this.SortByRecoilYBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByRecoilYBtn.TabIndex = 17;
+            this.SortByRecoilYBtn.TabStop = false;
+            this.SortByRecoilYBtn.Text = "Recoil Y";
+            this.SortByRecoilYBtn.UseVisualStyleBackColor = true;
+            this.SortByRecoilYBtn.Click += new System.EventHandler(this.SortByRecoilYBtn_Click);
+            // 
+            // SortByRecoilXBtn
+            // 
+            this.SortByRecoilXBtn.Location = new System.Drawing.Point(9, 398);
+            this.SortByRecoilXBtn.Name = "SortByRecoilXBtn";
+            this.SortByRecoilXBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByRecoilXBtn.TabIndex = 16;
+            this.SortByRecoilXBtn.TabStop = false;
+            this.SortByRecoilXBtn.Text = "Recoil X";
+            this.SortByRecoilXBtn.UseVisualStyleBackColor = true;
+            this.SortByRecoilXBtn.Click += new System.EventHandler(this.SortByRecoilXBtn_Click);
+            // 
+            // SortByMSMBtn
+            // 
+            this.SortByMSMBtn.Location = new System.Drawing.Point(9, 485);
+            this.SortByMSMBtn.Name = "SortByMSMBtn";
+            this.SortByMSMBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByMSMBtn.TabIndex = 15;
+            this.SortByMSMBtn.TabStop = false;
+            this.SortByMSMBtn.Text = "Movement speed (cloth)";
+            this.SortByMSMBtn.UseVisualStyleBackColor = true;
+            this.SortByMSMBtn.Click += new System.EventHandler(this.SortByMSMBtn_Click);
+            // 
+            // SortByEMSMBtn
+            // 
+            this.SortByEMSMBtn.Location = new System.Drawing.Point(9, 456);
+            this.SortByEMSMBtn.Name = "SortByEMSMBtn";
+            this.SortByEMSMBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByEMSMBtn.TabIndex = 14;
+            this.SortByEMSMBtn.TabStop = false;
+            this.SortByEMSMBtn.Text = "Movement speed (items)";
+            this.SortByEMSMBtn.UseVisualStyleBackColor = true;
+            this.SortByEMSMBtn.Click += new System.EventHandler(this.SortByEMSMBtn_Click);
             // 
             // SortByPelletsBtn
             // 
@@ -774,16 +957,16 @@
             this.SortByVolumeBtn.UseVisualStyleBackColor = true;
             this.SortByVolumeBtn.Click += new System.EventHandler(this.SortByVolumeBtn_Click);
             // 
-            // SortByShakeBtn
+            // SortBySpreadBtn
             // 
-            this.SortByShakeBtn.Location = new System.Drawing.Point(9, 252);
-            this.SortByShakeBtn.Name = "SortByShakeBtn";
-            this.SortByShakeBtn.Size = new System.Drawing.Size(173, 23);
-            this.SortByShakeBtn.TabIndex = 8;
-            this.SortByShakeBtn.TabStop = false;
-            this.SortByShakeBtn.Text = "Shake";
-            this.SortByShakeBtn.UseVisualStyleBackColor = true;
-            this.SortByShakeBtn.Click += new System.EventHandler(this.SortByShakeBtn_Click);
+            this.SortBySpreadBtn.Location = new System.Drawing.Point(9, 252);
+            this.SortBySpreadBtn.Name = "SortBySpreadBtn";
+            this.SortBySpreadBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortBySpreadBtn.TabIndex = 8;
+            this.SortBySpreadBtn.TabStop = false;
+            this.SortBySpreadBtn.Text = "Spread";
+            this.SortBySpreadBtn.UseVisualStyleBackColor = true;
+            this.SortBySpreadBtn.Click += new System.EventHandler(this.SortBySpreadBtn_Click);
             // 
             // SortByBuildingHealthBtn
             // 
@@ -831,7 +1014,7 @@
             // 
             // MixBtn
             // 
-            this.MixBtn.Location = new System.Drawing.Point(13, 520);
+            this.MixBtn.Location = new System.Drawing.Point(9, 573);
             this.MixBtn.Name = "MixBtn";
             this.MixBtn.Size = new System.Drawing.Size(173, 23);
             this.MixBtn.TabIndex = 1;
@@ -840,16 +1023,27 @@
             this.MixBtn.UseVisualStyleBackColor = true;
             this.MixBtn.Click += new System.EventHandler(this.MixBtn_Click);
             // 
+            // ItemStatsLabel
+            // 
+            this.ItemStatsLabel.AutoSize = true;
+            this.ItemStatsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.ItemStatsLabel.Location = new System.Drawing.Point(192, 158);
+            this.ItemStatsLabel.Name = "ItemStatsLabel";
+            this.ItemStatsLabel.Size = new System.Drawing.Size(54, 13);
+            this.ItemStatsLabel.TabIndex = 8;
+            this.ItemStatsLabel.Text = "Item Stats";
+            // 
             // ItemList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 583);
+            this.ClientSize = new System.Drawing.Size(734, 635);
+            this.Controls.Add(this.ItemStatsLabel);
             this.Controls.Add(this.SortingGroupBox);
-            this.Controls.Add(this.ItemStatsGroupBox);
             this.Controls.Add(this.InfoGroupBox);
             this.Controls.Add(this.ResultsListBox);
             this.Controls.Add(this.ResultsLabel);
+            this.Controls.Add(this.ItemStatsPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -857,8 +1051,8 @@
             this.Text = "Item List";
             this.InfoGroupBox.ResumeLayout(false);
             this.InfoGroupBox.PerformLayout();
-            this.ItemStatsGroupBox.ResumeLayout(false);
-            this.ItemStatsGroupBox.PerformLayout();
+            this.ItemStatsPanel.ResumeLayout(false);
+            this.ItemStatsPanel.PerformLayout();
             this.SortingGroupBox.ResumeLayout(false);
             this.SortingGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -875,62 +1069,77 @@
         private System.Windows.Forms.Label IdLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Button IdToClipboard;
-        private System.Windows.Forms.GroupBox ItemStatsGroupBox;
-        private System.Windows.Forms.TextBox player_skull_damage;
-        private System.Windows.Forms.TextBox player_spine_damage;
-        private System.Windows.Forms.TextBox item_capacity;
-        private System.Windows.Forms.TextBox armor;
-        private System.Windows.Forms.Label BodyDamageLabel;
-        private System.Windows.Forms.Label HeadDamageLabel;
-        private System.Windows.Forms.Label ProtectionLabel;
-        private System.Windows.Forms.Label ItemCapacityLabel;
-        private System.Windows.Forms.Label UseableLabel;
-        private System.Windows.Forms.TextBox useable;
-        private System.Windows.Forms.TextBox type;
-        private System.Windows.Forms.Label TypeLabel;
         private System.Windows.Forms.Button SortDamagePlayersBtn;
         private System.Windows.Forms.Button SortCapacityBtn;
         private System.Windows.Forms.Button SortProtectionBtn;
         private System.Windows.Forms.GroupBox SortingGroupBox;
-        private System.Windows.Forms.TextBox range;
-        private System.Windows.Forms.Label RangeLabel;
-        private System.Windows.Forms.TextBox structure_damage;
-        private System.Windows.Forms.Label BuildingsDamageLabel;
-        private System.Windows.Forms.TextBox player_damage;
-        private System.Windows.Forms.Label PlayerDamageLabel;
         private System.Windows.Forms.Button SortDamageBuildingsBtn;
-        private System.Windows.Forms.TextBox health;
-        private System.Windows.Forms.Label ItemHealthLabel;
-        private System.Windows.Forms.TextBox engine;
-        private System.Windows.Forms.Label EngineLabel;
         private System.Windows.Forms.Button SortVehicleHealthBtn;
         private System.Windows.Forms.Button SortBarricadeCapacityBtn;
         private System.Windows.Forms.Button SortByBuildingHealthBtn;
-        private System.Windows.Forms.Button SortByShakeBtn;
-        private System.Windows.Forms.TextBox shake;
-        private System.Windows.Forms.Label ShakeLabel;
-        private System.Windows.Forms.TextBox volume;
-        private System.Windows.Forms.Label VolumeLabel;
+        private System.Windows.Forms.Button SortBySpreadBtn;
         private System.Windows.Forms.Button SortByVolumeBtn;
-        private System.Windows.Forms.TextBox damage;
-        private System.Windows.Forms.Label BarrelDamageLabel;
         private System.Windows.Forms.Button SortByBarrelDamageBtn;
         private System.Windows.Forms.TextBox IdPrefixTextBox;
         private System.Windows.Forms.Button AllNameIdToClipboard;
         private System.Windows.Forms.Button NameIdToClipboard;
         private System.Windows.Forms.Label SortByLabel;
-        private System.Windows.Forms.TextBox amount;
-        private System.Windows.Forms.Label AmmoAmountLabel;
-        private System.Windows.Forms.Button LinkedAmmoBtn;
-        private System.Windows.Forms.Label LinkedAmmoLabel;
-        private System.Windows.Forms.Button LinkedModulesBtn;
-        private System.Windows.Forms.Label LinkedModulesLabel;
-        private System.Windows.Forms.Button LinkedGunsBtn;
-        private System.Windows.Forms.Label LinkedGunsLabel;
         private System.Windows.Forms.Button SortByAmmoAmountBtn;
-        private System.Windows.Forms.TextBox pellets;
-        private System.Windows.Forms.Label PelletsLabel;
         private System.Windows.Forms.Button SortByPelletsBtn;
         private System.Windows.Forms.Button MixBtn;
+        private System.Windows.Forms.Button SortByEMSMBtn;
+        private System.Windows.Forms.Button SortByMSMBtn;
+        private System.Windows.Forms.Button SortByRecoilYBtn;
+        private System.Windows.Forms.Button SortByRecoilXBtn;
+        private System.Windows.Forms.Button SortByRangeBtn;
+        private System.Windows.Forms.Button SortByFirerateBtn;
+        private System.Windows.Forms.Panel ItemStatsPanel;
+        private System.Windows.Forms.TextBox item_capacity;
+        private System.Windows.Forms.Label ItemCapacityLabel;
+        private System.Windows.Forms.Label ProtectionLabel;
+        private System.Windows.Forms.Label HeadDamageLabel;
+        private System.Windows.Forms.Label BodyDamageLabel;
+        private System.Windows.Forms.Label PlayerDamageLabel;
+        private System.Windows.Forms.Label UseableLabel;
+        private System.Windows.Forms.Label FirerateLabel;
+        private System.Windows.Forms.Label BuildingsDamageLabel;
+        private System.Windows.Forms.Label TypeLabel;
+        private System.Windows.Forms.Label RangeLabel;
+        private System.Windows.Forms.Label EngineLabel;
+        private System.Windows.Forms.Label ItemHealthLabel;
+        private System.Windows.Forms.Label SpreadLabel;
+        private System.Windows.Forms.Label EMSMLabel;
+        private System.Windows.Forms.Label VolumeLabel;
+        private System.Windows.Forms.Label BarrelDamageLabel;
+        private System.Windows.Forms.TextBox armor;
+        private System.Windows.Forms.TextBox player_skull_damage;
+        private System.Windows.Forms.TextBox player_spine_damage;
+        private System.Windows.Forms.TextBox player_damage;
+        private System.Windows.Forms.TextBox structure_damage;
+        private System.Windows.Forms.TextBox range;
+        private System.Windows.Forms.TextBox useable;
+        private System.Windows.Forms.TextBox type;
+        private System.Windows.Forms.TextBox engine;
+        private System.Windows.Forms.TextBox health;
+        private System.Windows.Forms.TextBox spread;
+        private System.Windows.Forms.TextBox volume;
+        private System.Windows.Forms.TextBox damage;
+        private System.Windows.Forms.Label AmmoAmountLabel;
+        private System.Windows.Forms.TextBox amount;
+        private System.Windows.Forms.Label LinkedAmmoLabel;
+        private System.Windows.Forms.Label PelletsLabel;
+        private System.Windows.Forms.TextBox pellets;
+        private System.Windows.Forms.Button LinkedAmmoBtn;
+        private System.Windows.Forms.Button LinkedModulesBtn;
+        private System.Windows.Forms.Button LinkedGunsBtn;
+        private System.Windows.Forms.Label Recoil_XYLabel;
+        private System.Windows.Forms.TextBox recoil_x;
+        private System.Windows.Forms.TextBox recoil_y;
+        private System.Windows.Forms.TextBox equipable_movement_speed_multiplier;
+        private System.Windows.Forms.TextBox movement_speed_multiplier;
+        private System.Windows.Forms.TextBox firerate;
+        private Label LinkedGunsLabel;
+        private Label LinkedModulesLabel;
+        private Label ItemStatsLabel;
     }
 }
