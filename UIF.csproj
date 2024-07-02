@@ -100,12 +100,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Folders.resx">
       <DependentUpon>Folders.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ItemsCategories.resx">
       <DependentUpon>ItemsCategories.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ItemList.resx">
       <DependentUpon>ItemList.cs</DependentUpon>
@@ -132,6 +135,7 @@
     <EmbeddedResource Include="Properties\ItemsCategories.en-US.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ItemsCategories.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
