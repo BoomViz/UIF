@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Resources;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace UIF
@@ -301,11 +302,50 @@ namespace UIF
             UpdateItemList();
         }
 
+        private void SortByIDBtn_Click(object sender, EventArgs e)
+        {
+            items.Sort((a, b) =>
+            {
+                int idA = a.GetValue("id", "0").ToInt();
+                int idB = b.GetValue("id", "0").ToInt();
+
+                return isSortedAscending ? idA.CompareTo(idB) : idB.CompareTo(idA);
+            });
+
+            isSortedAscending = !isSortedAscending; // Переключаем флаг сортировки
+            UpdateItemList();
+        }
+
+        private void SortByNameBtn_Click(object sender, EventArgs e)
+        {
+            Regex regex = new Regex(@"\d+");
+
+            items.Sort((a, b) =>
+            {
+                var matchA = regex.Match(a.GetValue("name", ""));
+                int numberA = matchA.Success ? int.Parse(matchA.Value) : int.MaxValue;
+
+                var matchB = regex.Match(b.GetValue("name", ""));
+                int numberB = matchB.Success ? int.Parse(matchB.Value) : int.MaxValue;
+
+                int numberComparison = isSortedAscending ? numberA.CompareTo(numberB) : numberB.CompareTo(numberA);
+                if (numberComparison != 0)
+                    return numberComparison;
+
+                return isSortedAscending ? String.Compare(a.GetValue("name", ""), b.GetValue("name", "")) : String.Compare(b.GetValue("name", ""), a.GetValue("name", ""));
+            });
+
+            isSortedAscending = !isSortedAscending; // Переключаем флаг сортировки
+            UpdateItemList();
+        }
+
         private void SortByVolumeBtn_Click(object sender, EventArgs e)
         {
             items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.BarrelVolume));
 
             UpdateItemList();
         }
+        
+        private bool isSortedAscending = true;
     }
 }
