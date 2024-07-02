@@ -225,11 +225,17 @@
   <data name="SortByFirerateBtn" xml:space="preserve">
     <value>Скорострельности</value>
   </data>
+  <data name="SortByIDBtn" xml:space="preserve">
+    <value>ID</value>
+  </data>
   <data name="SortByLabel" xml:space="preserve">
     <value>Сортировка</value>
   </data>
   <data name="SortByMSMBtn" xml:space="preserve">
     <value>Скорости прдвж (одежда)</value>
+  </data>
+  <data name="SortByNameBtn" xml:space="preserve">
+    <value>Имени</value>
   </data>
   <data name="SortByPelletsBtn" xml:space="preserve">
     <value>Количеству дробинок</value>
@@ -244,10 +250,10 @@
     <value>Отдача Y</value>
   </data>
   <data name="SortBySpreadBtn" xml:space="preserve">
-    <value>По разбросу (обвесы)</value>
+    <value>Разбросу (обвесы)</value>
   </data>
   <data name="SortByVolumeBtn" xml:space="preserve">
-    <value>Множитель звука (обвесы)</value>
+    <value>Множителю звука (обвесы)</value>
   </data>
   <data name="SortCapacityBtn" xml:space="preserve">
     <value>Вместительности одежды</value>
@@ -257,9 +263,6 @@
   </data>
   <data name="SortDamagePlayersBtn" xml:space="preserve">
     <value>Урону по игрокам</value>
-  </data>
-  <data name="SortingGroupBox" xml:space="preserve">
-    <value>Сортировки</value>
   </data>
   <data name="SortProtectionBtn" xml:space="preserve">
     <value>Защите</value>

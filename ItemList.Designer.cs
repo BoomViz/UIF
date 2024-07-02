@@ -92,7 +92,6 @@ namespace UIF
             this.SortDamagePlayersBtn = new System.Windows.Forms.Button();
             this.SortCapacityBtn = new System.Windows.Forms.Button();
             this.SortProtectionBtn = new System.Windows.Forms.Button();
-            this.SortingGroupBox = new System.Windows.Forms.GroupBox();
             this.SortByRangeBtn = new System.Windows.Forms.Button();
             this.SortByFirerateBtn = new System.Windows.Forms.Button();
             this.SortByRecoilYBtn = new System.Windows.Forms.Button();
@@ -111,9 +110,12 @@ namespace UIF
             this.SortDamageBuildingsBtn = new System.Windows.Forms.Button();
             this.MixBtn = new System.Windows.Forms.Button();
             this.ItemStatsLabel = new System.Windows.Forms.Label();
+            this.SortingPanel = new System.Windows.Forms.Panel();
+            this.SortByIDBtn = new System.Windows.Forms.Button();
+            this.SortByNameBtn = new System.Windows.Forms.Button();
             this.InfoGroupBox.SuspendLayout();
             this.ItemStatsPanel.SuspendLayout();
-            this.SortingGroupBox.SuspendLayout();
+            this.SortingPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ResultsLabel
@@ -241,7 +243,6 @@ namespace UIF
             // ItemStatsPanel
             // 
             this.ItemStatsPanel.AutoScroll = true;
-            this.ItemStatsPanel.AutoScrollMargin = new System.Drawing.Size(0, 1000);
             this.ItemStatsPanel.Controls.Add(this.LinkedGunsBtn);
             this.ItemStatsPanel.Controls.Add(this.LinkedModulesBtn);
             this.ItemStatsPanel.Controls.Add(this.LinkedAmmoBtn);
@@ -777,9 +778,9 @@ namespace UIF
             // 
             // SortDamagePlayersBtn
             // 
-            this.SortDamagePlayersBtn.Location = new System.Drawing.Point(9, 106);
+            this.SortDamagePlayersBtn.Location = new System.Drawing.Point(7, 134);
             this.SortDamagePlayersBtn.Name = "SortDamagePlayersBtn";
-            this.SortDamagePlayersBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortDamagePlayersBtn.Size = new System.Drawing.Size(160, 23);
             this.SortDamagePlayersBtn.TabIndex = 4;
             this.SortDamagePlayersBtn.TabStop = false;
             this.SortDamagePlayersBtn.Text = "Damage to players";
@@ -788,9 +789,9 @@ namespace UIF
             // 
             // SortCapacityBtn
             // 
-            this.SortCapacityBtn.Location = new System.Drawing.Point(9, 49);
+            this.SortCapacityBtn.Location = new System.Drawing.Point(7, 77);
             this.SortCapacityBtn.Name = "SortCapacityBtn";
-            this.SortCapacityBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortCapacityBtn.Size = new System.Drawing.Size(160, 23);
             this.SortCapacityBtn.TabIndex = 3;
             this.SortCapacityBtn.TabStop = false;
             this.SortCapacityBtn.Text = "Clothing capacity";
@@ -799,49 +800,20 @@ namespace UIF
             // 
             // SortProtectionBtn
             // 
-            this.SortProtectionBtn.Location = new System.Drawing.Point(9, 78);
+            this.SortProtectionBtn.Location = new System.Drawing.Point(7, 106);
             this.SortProtectionBtn.Name = "SortProtectionBtn";
-            this.SortProtectionBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortProtectionBtn.Size = new System.Drawing.Size(160, 23);
             this.SortProtectionBtn.TabIndex = 2;
             this.SortProtectionBtn.TabStop = false;
             this.SortProtectionBtn.Text = "Clothing protection";
             this.SortProtectionBtn.UseVisualStyleBackColor = true;
             this.SortProtectionBtn.Click += new System.EventHandler(this.SortProtectionBtn_Click);
             // 
-            // SortingGroupBox
-            // 
-            this.SortingGroupBox.Controls.Add(this.SortByRangeBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByFirerateBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByRecoilYBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByRecoilXBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByMSMBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByEMSMBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByPelletsBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByAmmoAmountBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByLabel);
-            this.SortingGroupBox.Controls.Add(this.SortByBarrelDamageBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByVolumeBtn);
-            this.SortingGroupBox.Controls.Add(this.SortBySpreadBtn);
-            this.SortingGroupBox.Controls.Add(this.SortByBuildingHealthBtn);
-            this.SortingGroupBox.Controls.Add(this.SortBarricadeCapacityBtn);
-            this.SortingGroupBox.Controls.Add(this.SortVehicleHealthBtn);
-            this.SortingGroupBox.Controls.Add(this.SortDamageBuildingsBtn);
-            this.SortingGroupBox.Controls.Add(this.MixBtn);
-            this.SortingGroupBox.Controls.Add(this.SortProtectionBtn);
-            this.SortingGroupBox.Controls.Add(this.SortCapacityBtn);
-            this.SortingGroupBox.Controls.Add(this.SortDamagePlayersBtn);
-            this.SortingGroupBox.Location = new System.Drawing.Point(536, 29);
-            this.SortingGroupBox.Name = "SortingGroupBox";
-            this.SortingGroupBox.Size = new System.Drawing.Size(191, 604);
-            this.SortingGroupBox.TabIndex = 0;
-            this.SortingGroupBox.TabStop = false;
-            this.SortingGroupBox.Text = "Sorting";
-            // 
             // SortByRangeBtn
             // 
-            this.SortByRangeBtn.Location = new System.Drawing.Point(9, 543);
+            this.SortByRangeBtn.Location = new System.Drawing.Point(7, 571);
             this.SortByRangeBtn.Name = "SortByRangeBtn";
-            this.SortByRangeBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByRangeBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByRangeBtn.TabIndex = 18;
             this.SortByRangeBtn.TabStop = false;
             this.SortByRangeBtn.Text = "Range";
@@ -850,9 +822,9 @@ namespace UIF
             // 
             // SortByFirerateBtn
             // 
-            this.SortByFirerateBtn.Location = new System.Drawing.Point(9, 514);
+            this.SortByFirerateBtn.Location = new System.Drawing.Point(7, 542);
             this.SortByFirerateBtn.Name = "SortByFirerateBtn";
-            this.SortByFirerateBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByFirerateBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByFirerateBtn.TabIndex = 18;
             this.SortByFirerateBtn.TabStop = false;
             this.SortByFirerateBtn.Text = "Firerate";
@@ -861,9 +833,9 @@ namespace UIF
             // 
             // SortByRecoilYBtn
             // 
-            this.SortByRecoilYBtn.Location = new System.Drawing.Point(9, 427);
+            this.SortByRecoilYBtn.Location = new System.Drawing.Point(7, 455);
             this.SortByRecoilYBtn.Name = "SortByRecoilYBtn";
-            this.SortByRecoilYBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByRecoilYBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByRecoilYBtn.TabIndex = 17;
             this.SortByRecoilYBtn.TabStop = false;
             this.SortByRecoilYBtn.Text = "Recoil Y";
@@ -872,9 +844,9 @@ namespace UIF
             // 
             // SortByRecoilXBtn
             // 
-            this.SortByRecoilXBtn.Location = new System.Drawing.Point(9, 398);
+            this.SortByRecoilXBtn.Location = new System.Drawing.Point(7, 426);
             this.SortByRecoilXBtn.Name = "SortByRecoilXBtn";
-            this.SortByRecoilXBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByRecoilXBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByRecoilXBtn.TabIndex = 16;
             this.SortByRecoilXBtn.TabStop = false;
             this.SortByRecoilXBtn.Text = "Recoil X";
@@ -883,9 +855,9 @@ namespace UIF
             // 
             // SortByMSMBtn
             // 
-            this.SortByMSMBtn.Location = new System.Drawing.Point(9, 485);
+            this.SortByMSMBtn.Location = new System.Drawing.Point(7, 513);
             this.SortByMSMBtn.Name = "SortByMSMBtn";
-            this.SortByMSMBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByMSMBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByMSMBtn.TabIndex = 15;
             this.SortByMSMBtn.TabStop = false;
             this.SortByMSMBtn.Text = "Movement speed (cloth)";
@@ -894,9 +866,9 @@ namespace UIF
             // 
             // SortByEMSMBtn
             // 
-            this.SortByEMSMBtn.Location = new System.Drawing.Point(9, 456);
+            this.SortByEMSMBtn.Location = new System.Drawing.Point(7, 484);
             this.SortByEMSMBtn.Name = "SortByEMSMBtn";
-            this.SortByEMSMBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByEMSMBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByEMSMBtn.TabIndex = 14;
             this.SortByEMSMBtn.TabStop = false;
             this.SortByEMSMBtn.Text = "Movement speed (items)";
@@ -905,9 +877,9 @@ namespace UIF
             // 
             // SortByPelletsBtn
             // 
-            this.SortByPelletsBtn.Location = new System.Drawing.Point(9, 369);
+            this.SortByPelletsBtn.Location = new System.Drawing.Point(7, 397);
             this.SortByPelletsBtn.Name = "SortByPelletsBtn";
-            this.SortByPelletsBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByPelletsBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByPelletsBtn.TabIndex = 13;
             this.SortByPelletsBtn.TabStop = false;
             this.SortByPelletsBtn.Text = "Pellets";
@@ -916,9 +888,9 @@ namespace UIF
             // 
             // SortByAmmoAmountBtn
             // 
-            this.SortByAmmoAmountBtn.Location = new System.Drawing.Point(9, 340);
+            this.SortByAmmoAmountBtn.Location = new System.Drawing.Point(7, 367);
             this.SortByAmmoAmountBtn.Name = "SortByAmmoAmountBtn";
-            this.SortByAmmoAmountBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByAmmoAmountBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByAmmoAmountBtn.TabIndex = 12;
             this.SortByAmmoAmountBtn.TabStop = false;
             this.SortByAmmoAmountBtn.Text = "Ammo amount";
@@ -937,9 +909,9 @@ namespace UIF
             // 
             // SortByBarrelDamageBtn
             // 
-            this.SortByBarrelDamageBtn.Location = new System.Drawing.Point(9, 281);
+            this.SortByBarrelDamageBtn.Location = new System.Drawing.Point(7, 309);
             this.SortByBarrelDamageBtn.Name = "SortByBarrelDamageBtn";
-            this.SortByBarrelDamageBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByBarrelDamageBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByBarrelDamageBtn.TabIndex = 10;
             this.SortByBarrelDamageBtn.TabStop = false;
             this.SortByBarrelDamageBtn.Text = "Barrel damage";
@@ -948,9 +920,9 @@ namespace UIF
             // 
             // SortByVolumeBtn
             // 
-            this.SortByVolumeBtn.Location = new System.Drawing.Point(9, 310);
+            this.SortByVolumeBtn.Location = new System.Drawing.Point(7, 338);
             this.SortByVolumeBtn.Name = "SortByVolumeBtn";
-            this.SortByVolumeBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByVolumeBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByVolumeBtn.TabIndex = 9;
             this.SortByVolumeBtn.TabStop = false;
             this.SortByVolumeBtn.Text = "Barrel volume";
@@ -959,9 +931,9 @@ namespace UIF
             // 
             // SortBySpreadBtn
             // 
-            this.SortBySpreadBtn.Location = new System.Drawing.Point(9, 252);
+            this.SortBySpreadBtn.Location = new System.Drawing.Point(7, 279);
             this.SortBySpreadBtn.Name = "SortBySpreadBtn";
-            this.SortBySpreadBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortBySpreadBtn.Size = new System.Drawing.Size(160, 23);
             this.SortBySpreadBtn.TabIndex = 8;
             this.SortBySpreadBtn.TabStop = false;
             this.SortBySpreadBtn.Text = "Spread";
@@ -970,9 +942,9 @@ namespace UIF
             // 
             // SortByBuildingHealthBtn
             // 
-            this.SortByBuildingHealthBtn.Location = new System.Drawing.Point(9, 223);
+            this.SortByBuildingHealthBtn.Location = new System.Drawing.Point(7, 250);
             this.SortByBuildingHealthBtn.Name = "SortByBuildingHealthBtn";
-            this.SortByBuildingHealthBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortByBuildingHealthBtn.Size = new System.Drawing.Size(160, 23);
             this.SortByBuildingHealthBtn.TabIndex = 7;
             this.SortByBuildingHealthBtn.TabStop = false;
             this.SortByBuildingHealthBtn.Text = "Building health";
@@ -981,9 +953,9 @@ namespace UIF
             // 
             // SortBarricadeCapacityBtn
             // 
-            this.SortBarricadeCapacityBtn.Location = new System.Drawing.Point(9, 193);
+            this.SortBarricadeCapacityBtn.Location = new System.Drawing.Point(7, 221);
             this.SortBarricadeCapacityBtn.Name = "SortBarricadeCapacityBtn";
-            this.SortBarricadeCapacityBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortBarricadeCapacityBtn.Size = new System.Drawing.Size(160, 23);
             this.SortBarricadeCapacityBtn.TabIndex = 6;
             this.SortBarricadeCapacityBtn.TabStop = false;
             this.SortBarricadeCapacityBtn.Text = "Barricade capacity";
@@ -992,9 +964,9 @@ namespace UIF
             // 
             // SortVehicleHealthBtn
             // 
-            this.SortVehicleHealthBtn.Location = new System.Drawing.Point(9, 164);
+            this.SortVehicleHealthBtn.Location = new System.Drawing.Point(7, 192);
             this.SortVehicleHealthBtn.Name = "SortVehicleHealthBtn";
-            this.SortVehicleHealthBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortVehicleHealthBtn.Size = new System.Drawing.Size(160, 23);
             this.SortVehicleHealthBtn.TabIndex = 5;
             this.SortVehicleHealthBtn.TabStop = false;
             this.SortVehicleHealthBtn.Text = "Vehicle health";
@@ -1003,9 +975,9 @@ namespace UIF
             // 
             // SortDamageBuildingsBtn
             // 
-            this.SortDamageBuildingsBtn.Location = new System.Drawing.Point(9, 135);
+            this.SortDamageBuildingsBtn.Location = new System.Drawing.Point(7, 163);
             this.SortDamageBuildingsBtn.Name = "SortDamageBuildingsBtn";
-            this.SortDamageBuildingsBtn.Size = new System.Drawing.Size(173, 23);
+            this.SortDamageBuildingsBtn.Size = new System.Drawing.Size(160, 23);
             this.SortDamageBuildingsBtn.TabIndex = 0;
             this.SortDamageBuildingsBtn.TabStop = false;
             this.SortDamageBuildingsBtn.Text = "Damage to buildings";
@@ -1014,9 +986,9 @@ namespace UIF
             // 
             // MixBtn
             // 
-            this.MixBtn.Location = new System.Drawing.Point(9, 573);
+            this.MixBtn.Location = new System.Drawing.Point(7, 48);
             this.MixBtn.Name = "MixBtn";
-            this.MixBtn.Size = new System.Drawing.Size(173, 23);
+            this.MixBtn.Size = new System.Drawing.Size(160, 23);
             this.MixBtn.TabIndex = 1;
             this.MixBtn.TabStop = false;
             this.MixBtn.Text = "Mix";
@@ -1033,13 +1005,66 @@ namespace UIF
             this.ItemStatsLabel.TabIndex = 8;
             this.ItemStatsLabel.Text = "Item Stats";
             // 
+            // SortingPanel
+            // 
+            this.SortingPanel.AutoScroll = true;
+            this.SortingPanel.Controls.Add(this.SortByNameBtn);
+            this.SortingPanel.Controls.Add(this.SortByIDBtn);
+            this.SortingPanel.Controls.Add(this.SortByRangeBtn);
+            this.SortingPanel.Controls.Add(this.SortByFirerateBtn);
+            this.SortingPanel.Controls.Add(this.SortByRecoilYBtn);
+            this.SortingPanel.Controls.Add(this.SortByRecoilXBtn);
+            this.SortingPanel.Controls.Add(this.SortByMSMBtn);
+            this.SortingPanel.Controls.Add(this.SortByEMSMBtn);
+            this.SortingPanel.Controls.Add(this.SortByPelletsBtn);
+            this.SortingPanel.Controls.Add(this.SortByAmmoAmountBtn);
+            this.SortingPanel.Controls.Add(this.SortByLabel);
+            this.SortingPanel.Controls.Add(this.SortByBarrelDamageBtn);
+            this.SortingPanel.Controls.Add(this.SortByVolumeBtn);
+            this.SortingPanel.Controls.Add(this.SortBySpreadBtn);
+            this.SortingPanel.Controls.Add(this.SortByBuildingHealthBtn);
+            this.SortingPanel.Controls.Add(this.SortBarricadeCapacityBtn);
+            this.SortingPanel.Controls.Add(this.SortVehicleHealthBtn);
+            this.SortingPanel.Controls.Add(this.SortDamageBuildingsBtn);
+            this.SortingPanel.Controls.Add(this.MixBtn);
+            this.SortingPanel.Controls.Add(this.SortProtectionBtn);
+            this.SortingPanel.Controls.Add(this.SortCapacityBtn);
+            this.SortingPanel.Controls.Add(this.SortDamagePlayersBtn);
+            this.SortingPanel.Location = new System.Drawing.Point(536, 29);
+            this.SortingPanel.Name = "SortingPanel";
+            this.SortingPanel.Size = new System.Drawing.Size(191, 602);
+            this.SortingPanel.TabIndex = 9;
+            this.SortingPanel.Text = "Sorting";
+            // 
+            // SortByIDBtn
+            // 
+            this.SortByIDBtn.Location = new System.Drawing.Point(7, 600);
+            this.SortByIDBtn.Name = "SortByIDBtn";
+            this.SortByIDBtn.Size = new System.Drawing.Size(160, 23);
+            this.SortByIDBtn.TabIndex = 19;
+            this.SortByIDBtn.TabStop = false;
+            this.SortByIDBtn.Text = "ID";
+            this.SortByIDBtn.UseVisualStyleBackColor = true;
+            this.SortByIDBtn.Click += new System.EventHandler(this.SortByIDBtn_Click);
+            // 
+            // SortByNameBtn
+            // 
+            this.SortByNameBtn.Location = new System.Drawing.Point(7, 629);
+            this.SortByNameBtn.Name = "SortByNameBtn";
+            this.SortByNameBtn.Size = new System.Drawing.Size(160, 23);
+            this.SortByNameBtn.TabIndex = 20;
+            this.SortByNameBtn.TabStop = false;
+            this.SortByNameBtn.Text = "Name";
+            this.SortByNameBtn.UseVisualStyleBackColor = true;
+            this.SortByNameBtn.Click += new System.EventHandler(this.SortByNameBtn_Click);
+            // 
             // ItemList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 635);
+            this.Controls.Add(this.SortingPanel);
             this.Controls.Add(this.ItemStatsLabel);
-            this.Controls.Add(this.SortingGroupBox);
             this.Controls.Add(this.InfoGroupBox);
             this.Controls.Add(this.ResultsListBox);
             this.Controls.Add(this.ResultsLabel);
@@ -1053,8 +1078,8 @@ namespace UIF
             this.InfoGroupBox.PerformLayout();
             this.ItemStatsPanel.ResumeLayout(false);
             this.ItemStatsPanel.PerformLayout();
-            this.SortingGroupBox.ResumeLayout(false);
-            this.SortingGroupBox.PerformLayout();
+            this.SortingPanel.ResumeLayout(false);
+            this.SortingPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1072,7 +1097,6 @@ namespace UIF
         private System.Windows.Forms.Button SortDamagePlayersBtn;
         private System.Windows.Forms.Button SortCapacityBtn;
         private System.Windows.Forms.Button SortProtectionBtn;
-        private System.Windows.Forms.GroupBox SortingGroupBox;
         private System.Windows.Forms.Button SortDamageBuildingsBtn;
         private System.Windows.Forms.Button SortVehicleHealthBtn;
         private System.Windows.Forms.Button SortBarricadeCapacityBtn;
@@ -1141,5 +1165,8 @@ namespace UIF
         private Label LinkedGunsLabel;
         private Label LinkedModulesLabel;
         private Label ItemStatsLabel;
+        private Panel SortingPanel;
+        private Button SortByIDBtn;
+        private Button SortByNameBtn;
     }
 }
