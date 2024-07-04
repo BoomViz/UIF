@@ -348,8 +348,8 @@ namespace UIF
         {
             items.Sort((a, b) =>
             {
-                int idA = a.GetValue("id", "0").ToInt();
-                int idB = b.GetValue("id", "0").ToInt();
+                int idA = int.TryParse(a.GetValue("id"), out var tempA) ? tempA : int.MaxValue;
+                int idB = int.TryParse(b.GetValue("id"), out var tempB) ? tempB : int.MaxValue;
 
                 return isSortedAscending ? idA.CompareTo(idB) : idB.CompareTo(idA);
             });
@@ -357,6 +357,7 @@ namespace UIF
             isSortedAscending = !isSortedAscending; // Переключаем флаг сортировки
             UpdateItemList();
         }
+
 
         private void SortByNameBtn_Click(object sender, EventArgs e)
         {
