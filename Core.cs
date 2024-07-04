@@ -42,6 +42,8 @@ namespace UIF
         {
             if (this.ContainsKey(key))
                 return this[key];
+            else if (key == "id" && this.ContainsKey("guid"))
+                return this["guid"];
             else
                 return standartReturn;
         }

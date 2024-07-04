@@ -34,6 +34,9 @@ namespace UIF
             this.ResultsLabel = new System.Windows.Forms.Label();
             this.ResultsListBox = new System.Windows.Forms.ListBox();
             this.InfoGroupBox = new System.Windows.Forms.GroupBox();
+            this.AllNameGuidToClipboard = new System.Windows.Forms.Button();
+            this.NameGuidToClipboard = new System.Windows.Forms.Button();
+            this.GuidToClipboard = new System.Windows.Forms.Button();
             this.NameIdToClipboard = new System.Windows.Forms.Button();
             this.AllNameIdToClipboard = new System.Windows.Forms.Button();
             this.IdPrefixTextBox = new System.Windows.Forms.TextBox();
@@ -111,8 +114,8 @@ namespace UIF
             this.MixBtn = new System.Windows.Forms.Button();
             this.ItemStatsLabel = new System.Windows.Forms.Label();
             this.SortingPanel = new System.Windows.Forms.Panel();
-            this.SortByIDBtn = new System.Windows.Forms.Button();
             this.SortByNameBtn = new System.Windows.Forms.Button();
+            this.SortByIDBtn = new System.Windows.Forms.Button();
             this.InfoGroupBox.SuspendLayout();
             this.ItemStatsPanel.SuspendLayout();
             this.SortingPanel.SuspendLayout();
@@ -140,6 +143,9 @@ namespace UIF
             // 
             // InfoGroupBox
             // 
+            this.InfoGroupBox.Controls.Add(this.AllNameGuidToClipboard);
+            this.InfoGroupBox.Controls.Add(this.NameGuidToClipboard);
+            this.InfoGroupBox.Controls.Add(this.GuidToClipboard);
             this.InfoGroupBox.Controls.Add(this.NameIdToClipboard);
             this.InfoGroupBox.Controls.Add(this.AllNameIdToClipboard);
             this.InfoGroupBox.Controls.Add(this.IdPrefixTextBox);
@@ -154,6 +160,39 @@ namespace UIF
             this.InfoGroupBox.TabIndex = 5;
             this.InfoGroupBox.TabStop = false;
             this.InfoGroupBox.Text = "Info";
+            // 
+            // AllNameGuidToClipboard
+            // 
+            this.AllNameGuidToClipboard.Location = new System.Drawing.Point(10, 106);
+            this.AllNameGuidToClipboard.Name = "AllNameGuidToClipboard";
+            this.AllNameGuidToClipboard.Size = new System.Drawing.Size(74, 23);
+            this.AllNameGuidToClipboard.TabIndex = 10;
+            this.AllNameGuidToClipboard.TabStop = false;
+            this.AllNameGuidToClipboard.Text = "All N/GUID";
+            this.AllNameGuidToClipboard.UseVisualStyleBackColor = true;
+            this.AllNameGuidToClipboard.Click += new System.EventHandler(this.AllNameGuidToClipboard_Click);
+            // 
+            // NameGuidToClipboard
+            // 
+            this.NameGuidToClipboard.Location = new System.Drawing.Point(10, 83);
+            this.NameGuidToClipboard.Name = "NameGuidToClipboard";
+            this.NameGuidToClipboard.Size = new System.Drawing.Size(74, 23);
+            this.NameGuidToClipboard.TabIndex = 9;
+            this.NameGuidToClipboard.TabStop = false;
+            this.NameGuidToClipboard.Text = "Name GUID";
+            this.NameGuidToClipboard.UseVisualStyleBackColor = true;
+            this.NameGuidToClipboard.Click += new System.EventHandler(this.NameGuidToClipboard_Click);
+            // 
+            // GuidToClipboard
+            // 
+            this.GuidToClipboard.Location = new System.Drawing.Point(10, 60);
+            this.GuidToClipboard.Name = "GuidToClipboard";
+            this.GuidToClipboard.Size = new System.Drawing.Size(74, 23);
+            this.GuidToClipboard.TabIndex = 8;
+            this.GuidToClipboard.TabStop = false;
+            this.GuidToClipboard.Text = "GUID";
+            this.GuidToClipboard.UseVisualStyleBackColor = true;
+            this.GuidToClipboard.Click += new System.EventHandler(this.GuidToClipboard_Click);
             // 
             // NameIdToClipboard
             // 
@@ -1036,17 +1075,6 @@ namespace UIF
             this.SortingPanel.TabIndex = 9;
             this.SortingPanel.Text = "Sorting";
             // 
-            // SortByIDBtn
-            // 
-            this.SortByIDBtn.Location = new System.Drawing.Point(7, 600);
-            this.SortByIDBtn.Name = "SortByIDBtn";
-            this.SortByIDBtn.Size = new System.Drawing.Size(160, 23);
-            this.SortByIDBtn.TabIndex = 19;
-            this.SortByIDBtn.TabStop = false;
-            this.SortByIDBtn.Text = "ID";
-            this.SortByIDBtn.UseVisualStyleBackColor = true;
-            this.SortByIDBtn.Click += new System.EventHandler(this.SortByIDBtn_Click);
-            // 
             // SortByNameBtn
             // 
             this.SortByNameBtn.Location = new System.Drawing.Point(7, 629);
@@ -1057,6 +1085,17 @@ namespace UIF
             this.SortByNameBtn.Text = "Name";
             this.SortByNameBtn.UseVisualStyleBackColor = true;
             this.SortByNameBtn.Click += new System.EventHandler(this.SortByNameBtn_Click);
+            // 
+            // SortByIDBtn
+            // 
+            this.SortByIDBtn.Location = new System.Drawing.Point(7, 600);
+            this.SortByIDBtn.Name = "SortByIDBtn";
+            this.SortByIDBtn.Size = new System.Drawing.Size(160, 23);
+            this.SortByIDBtn.TabIndex = 19;
+            this.SortByIDBtn.TabStop = false;
+            this.SortByIDBtn.Text = "ID";
+            this.SortByIDBtn.UseVisualStyleBackColor = true;
+            this.SortByIDBtn.Click += new System.EventHandler(this.SortByIDBtn_Click);
             // 
             // ItemList
             // 
@@ -1168,5 +1207,8 @@ namespace UIF
         private Panel SortingPanel;
         private Button SortByIDBtn;
         private Button SortByNameBtn;
+        private Button AllNameGuidToClipboard;
+        private Button NameGuidToClipboard;
+        private Button GuidToClipboard;
     }
 }

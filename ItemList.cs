@@ -124,6 +124,48 @@ namespace UIF
             Clipboard.SetText(copyStr);
         }
 
+        private void GuidToClipboard_Click(object sender, EventArgs e)
+        {
+            if (ResultsListBox.SelectedIndex != -1)
+                Clipboard.SetText(
+                    ((IdPrefixTextBox.Text != string.Empty ? IdPrefixTextBox.Text + " " : string.Empty)
+                    + items[ResultsListBox.SelectedIndex].GetValue("guid")).Trim()
+                );
+        }
+
+        private void NameGuidToClipboard_Click(object sender, EventArgs e)
+        {
+            if (ResultsListBox.SelectedIndex != -1)
+                Clipboard.SetText(
+                    (
+                        items[ResultsListBox.SelectedIndex].GetValue("name")
+                        + " - "
+                        + (IdPrefixTextBox.Text != string.Empty ? IdPrefixTextBox.Text + " " : string.Empty)
+                        + items[ResultsListBox.SelectedIndex].GetValue("guid")
+                    )
+                    .Trim()
+                );
+        }
+
+        private void AllNameGuidToClipboard_Click(object sender, EventArgs e)
+        {
+            string copyStr = string.Empty;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                copyStr += (
+                    items[i].GetValue("name")
+                    + " - "
+                    + (IdPrefixTextBox.Text != string.Empty ? IdPrefixTextBox.Text + " " : string.Empty)
+                    + items[i].GetValue("guid")
+                )
+                .Trim() + (i < items.Count - 1 ? "\n" : string.Empty);
+            }
+
+            Clipboard.SetText(copyStr);
+        }
+
+
         private void SortCapacityBtn_Click(object sender, EventArgs e)
         {
             items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.ClothingStorage));
@@ -345,7 +387,7 @@ namespace UIF
 
             UpdateItemList();
         }
-        
+
         private bool isSortedAscending = true;
     }
 }

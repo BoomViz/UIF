@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllNameGuidToClipboard" xml:space="preserve">
+    <value>All Н/GUID</value>
+  </data>
   <data name="AllNameIdToClipboard" xml:space="preserve">
-    <value>Скопировать все Имя/ID</value>
+    <value>Скопировать все Названия/ID</value>
   </data>
   <data name="AmmoAmountLabel" xml:space="preserve">
     <value>Количество патрон:</value>
@@ -140,6 +143,9 @@
   </data>
   <data name="FirerateLabel" xml:space="preserve">
     <value>Скорострельность:</value>
+  </data>
+  <data name="GuidToClipboard" xml:space="preserve">
+    <value>GUID</value>
   </data>
   <data name="HeadDamageLabel" xml:space="preserve">
     <value>Урон (голова):</value>
@@ -183,8 +189,11 @@
   <data name="MixBtn" xml:space="preserve">
     <value>Перемешать</value>
   </data>
+  <data name="NameGuidToClipboard" xml:space="preserve">
+    <value>Назв/GUID</value>
+  </data>
   <data name="NameIdToClipboard" xml:space="preserve">
-    <value>Скопировать Имя/ID</value>
+    <value>Скопировать Название/ID</value>
   </data>
   <data name="NameLabel" xml:space="preserve">
     <value>Имя:</value>
