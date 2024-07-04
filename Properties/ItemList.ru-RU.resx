@@ -132,8 +132,14 @@
   <data name="BuildingsDamageLabel" xml:space="preserve">
     <value>Урон постройкам:</value>
   </data>
+  <data name="EMSMLabel" xml:space="preserve">
+    <value>Мн. скорости: (предм/одежда)</value>
+  </data>
   <data name="EngineLabel" xml:space="preserve">
     <value>Двигатель:</value>
+  </data>
+  <data name="FirerateLabel" xml:space="preserve">
+    <value>Скорострельность:</value>
   </data>
   <data name="HeadDamageLabel" xml:space="preserve">
     <value>Урон (голова):</value>
@@ -153,26 +159,26 @@
   <data name="ItemHealthLabel" xml:space="preserve">
     <value>Хп Баррикады/Транспорта:</value>
   </data>
-  <data name="ItemStatsGroupBox" xml:space="preserve">
+  <data name="ItemStatsLabel" xml:space="preserve">
     <value>Информация о предмете</value>
   </data>
   <data name="LinkedAmmoBtn" xml:space="preserve">
-    <value>Клик!</value>
+    <value>Патроны</value>
   </data>
   <data name="LinkedAmmoLabel" xml:space="preserve">
-    <value>Связаные патроны</value>
+    <value>Связанные патроны:</value>
   </data>
   <data name="LinkedGunsBtn" xml:space="preserve">
-    <value>Клик!</value>
+    <value>Оружие</value>
   </data>
   <data name="LinkedGunsLabel" xml:space="preserve">
-    <value>Связаное оружие</value>
+    <value>Связанное оружие:</value>
   </data>
   <data name="LinkedModulesBtn" xml:space="preserve">
-    <value>Клик!</value>
+    <value>Модули</value>
   </data>
   <data name="LinkedModulesLabel" xml:space="preserve">
-    <value>Связаные модули</value>
+    <value>Связанное модули:</value>
   </data>
   <data name="MixBtn" xml:space="preserve">
     <value>Перемешать</value>
@@ -195,11 +201,14 @@
   <data name="RangeLabel" xml:space="preserve">
     <value>Дальность:</value>
   </data>
+  <data name="Recoil_XYLabel" xml:space="preserve">
+    <value>Отдача X/Y:</value>
+  </data>
   <data name="ResultsLabel" xml:space="preserve">
     <value>Результаты поиска:</value>
   </data>
-  <data name="SpreadLabel" xml:space="preserve">
-    <value>Разброс (обвесы):</value>
+  <data name="ShakeLabel" xml:space="preserve">
+    <value>Множитель разброса (обвесы):</value>
   </data>
   <data name="SortBarricadeCapacityBtn" xml:space="preserve">
     <value>Вместительности баррикад</value>
@@ -211,15 +220,15 @@
     <value>Множитель урона (обвесы)</value>
   </data>
   <data name="SortByBuildingHealthBtn" xml:space="preserve">
-    <value>HP построек</value>
+    <value>Хп построек</value>
   </data>
   <data name="SortByLabel" xml:space="preserve">
-    <value>Сортировка</value>
+    <value>Сортировать</value>
   </data>
   <data name="SortByPelletsBtn" xml:space="preserve">
     <value>Количеству дробинок</value>
   </data>
-  <data name="SortBySpreadBtn" xml:space="preserve">
+  <data name="SortByShakeBtn" xml:space="preserve">
     <value>По разбросу (обвесы)</value>
   </data>
   <data name="SortByVolumeBtn" xml:space="preserve">
@@ -242,6 +251,9 @@
   </data>
   <data name="SortVehicleHealthBtn" xml:space="preserve">
     <value>Хп машин</value>
+  </data>
+  <data name="SpreadLabel" xml:space="preserve">
+    <value>Разброс (обвесы):</value>
   </data>
   <data name="TypeLabel" xml:space="preserve">
     <value>Тип:</value>
