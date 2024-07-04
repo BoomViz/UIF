@@ -71,14 +71,6 @@ namespace UIF
 			}
 		}
 
-		private void AllItemsBtn_Click(object sender, EventArgs e)
-		{
-			if (Folders.CheckedFoldersCount == 0)
-				MessageBox.Show(FolderErrorText);
-			else
-				new ItemsCategories().ShowDialog();
-		}
-
 		private void SearchIDButton_Click(object sender, EventArgs e)
 		{
 			if (Folders.CheckedFoldersCount == 0) {
@@ -90,7 +82,30 @@ namespace UIF
 			}
 		}
 
-		private void GitHubLink_Click(object sender, EventArgs e) => Misc.OpenUrl(Properties.Settings.Default.GitHubURL);
+        private void SearchTypeBtn_Click(object sender, EventArgs e)
+        {
+            if (Folders.CheckedFoldersCount == 0)
+            {
+                MessageBox.Show(FolderErrorText);
+            } else {
+                var items = Core.ParseAll(Folders.CheckedFolders, i => i.GetValue("type").ToLower().Contains(TypeBox.Text.ToLower()));
+
+                new ItemList(items).ShowDialog();
+			}
+        }
+
+		private void AllItemsBtn_Click(object sender, EventArgs e)
+		{
+			if (Folders.CheckedFoldersCount == 0)
+				MessageBox.Show(FolderErrorText);
+			else
+				new ItemsCategories().ShowDialog();
+		}
+
+        private string TypesTip;
+        private void TypesInfoBtn_Click(object sender, EventArgs e) => Tip.Show(TypesTip, TypesInfoBtn);
+
+        private void GitHubLink_Click(object sender, EventArgs e) => Misc.OpenUrl(Properties.Settings.Default.GitHubURL);
 
 		private void DiscordLink_Click(object sender, EventArgs e) => Misc.OpenUrl(Properties.Settings.Default.DiscordURL);
 
@@ -128,24 +143,6 @@ namespace UIF
         {
 			new Folders().ShowDialog();
         }
-
-        private void SearchTypeBtn_Click(object sender, EventArgs e)
-        {
-            if (Folders.CheckedFoldersCount == 0)
-            {
-                MessageBox.Show(FolderErrorText);
-            }
-            else
-            {
-                var items = Core.ParseAll(Folders.CheckedFolders, i => i.GetValue("type").ToLower().Contains(TypeBox.Text.ToLower()));
-
-                new ItemList(items).ShowDialog();
-            }
-        }
-
-        private string TypesTip;
-		private void TypesInfoBtn_Click(object sender, EventArgs e) => Tip.Show(TypesTip, TypesInfoBtn);
-
 
 		private void LocalizationComboBox_TextUpdate(object sender, EventArgs e) => LocalizationComboBox.Text = Properties.Settings.Default.Locale;
 	}
