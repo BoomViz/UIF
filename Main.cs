@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Resources;
 using System.Windows.Forms;
 
@@ -71,16 +72,26 @@ namespace UIF
 			}
 		}
 
-		private void SearchIDButton_Click(object sender, EventArgs e)
-		{
-			if (Folders.CheckedFoldersCount == 0) {
-				MessageBox.Show(FolderErrorText);
-			} else {
-				var items = Core.ParseAll(Folders.CheckedFolders, i => i.GetValue("id") == IDBox.Text);
+        private void SearchIDButton_Click(object sender, EventArgs e)
+        {
+            if (Folders.CheckedFoldersCount == 0)
+            {
+                MessageBox.Show(FolderErrorText);
+            }
+            else
+            {
+                var items = Core.ParseAll(Folders.CheckedFolders, i => i.GetValue("id") == IDBox.Text);
 
-				new ItemList(items).ShowDialog();
-			}
-		}
+                // Если по ID ничего не найдено, попробуем поиск по GUID
+                if (!items.Any())
+                {
+                    items = Core.ParseAll(Folders.CheckedFolders, i => i.GetValue("guid") == IDBox.Text);
+                }
+
+                new ItemList(items).ShowDialog();
+            }
+        }
+
 
         private void SearchTypeBtn_Click(object sender, EventArgs e)
         {
