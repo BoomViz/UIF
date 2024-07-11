@@ -135,6 +135,9 @@
   <data name="BuildingsDamageLabel" xml:space="preserve">
     <value>Урон постройкам:</value>
   </data>
+  <data name="CaliberIdFinderLabel" xml:space="preserve">
+    <value>Caliber ID Finder</value>
+  </data>
   <data name="EMSMLabel" xml:space="preserve">
     <value>Мн. скорости: (предм/одежда)</value>
   </data>
@@ -216,6 +219,15 @@
   <data name="ResultsLabel" xml:space="preserve">
     <value>Результаты поиска:</value>
   </data>
+  <data name="SearchAmmoCaliberBtn" xml:space="preserve">
+    <value>Патроны</value>
+  </data>
+  <data name="SearchGunsCaliberBtn" xml:space="preserve">
+    <value>Оружия</value>
+  </data>
+  <data name="SearchModulesCaliberBtn" xml:space="preserve">
+    <value>Модули</value>
+  </data>
   <data name="SortBarricadeCapacityBtn" xml:space="preserve">
     <value>Вместительности баррикад</value>
   </data>
@@ -290,14 +302,5 @@
   </data>
   <data name="VolumeLabel" xml:space="preserve">
     <value>Множитель звука (обвесы):</value>
-  </data>
-  <data name="Recoil_XYLabel" xml:space="preserve">
-    <value>Отдача X/Y:</value>
-  </data>
-  <data name="SortByRecoilXBtn" xml:space="preserve">
-    <value>Отдача X</value>
-  </data>
-  <data name="SortByRecoilYBtn" xml:space="preserve">
-    <value>Отдача Y</value>
   </data>
 </root>
