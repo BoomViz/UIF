@@ -40,12 +40,17 @@ namespace UIF
 
         public string GetValue(string key, string standartReturn = "")
         {
-            if (this.ContainsKey(key))
+            if (key == "id")
+            {
+                if (this.ContainsKey("id"))
+                    return this["id"];
+                else if (this.ContainsKey("guid"))
+                    return this["guid"];
+            }
+            else if (this.ContainsKey(key))
                 return this[key];
-            else if (key == "id" && this.ContainsKey("guid"))
-                return this["guid"];
-            else
-                return standartReturn;
+
+            return standartReturn;
         }
 
         // Return string array with values or empty array
@@ -224,6 +229,13 @@ namespace UIF
                     string _b = "";
                     foreach (string i in this.Keys)
                     {
+                        if (i.StartsWith("zoom"))
+                        {
+                            _b += i + " " + this.GetValue(i) + "\r\n";
+                        }
+                    }
+                    foreach (string i in this.Keys)
+                    {
                         if (i.StartsWith("caliber"))
                         {
                             _b += i + " " + this.GetValue(i) + "\r\n";
@@ -236,7 +248,6 @@ namespace UIF
                             _b += i + " " + this.GetValue(i) + "\r\n";
                         }
                     }
-
                     foreach (string i in this.Keys)
                     {
                         if (i.StartsWith("magazine_caliber_"))
