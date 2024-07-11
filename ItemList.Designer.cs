@@ -46,6 +46,12 @@ namespace UIF
             this.NameLabel = new System.Windows.Forms.Label();
             this.IdToClipboard = new System.Windows.Forms.Button();
             this.ItemStatsPanel = new System.Windows.Forms.Panel();
+            this.CalibersTextBox = new System.Windows.Forms.TextBox();
+            this.SearchGunsCaliberBtn = new System.Windows.Forms.Button();
+            this.SearchModulesCaliberBtn = new System.Windows.Forms.Button();
+            this.SearchAmmoCaliberBtn = new System.Windows.Forms.Button();
+            this.CaliberIDFinderBox = new System.Windows.Forms.TextBox();
+            this.CaliberIdFinderLabel = new System.Windows.Forms.Label();
             this.LinkedGunsBtn = new System.Windows.Forms.Button();
             this.LinkedModulesBtn = new System.Windows.Forms.Button();
             this.LinkedAmmoBtn = new System.Windows.Forms.Button();
@@ -282,6 +288,12 @@ namespace UIF
             // ItemStatsPanel
             // 
             this.ItemStatsPanel.AutoScroll = true;
+            this.ItemStatsPanel.Controls.Add(this.CalibersTextBox);
+            this.ItemStatsPanel.Controls.Add(this.SearchGunsCaliberBtn);
+            this.ItemStatsPanel.Controls.Add(this.SearchModulesCaliberBtn);
+            this.ItemStatsPanel.Controls.Add(this.SearchAmmoCaliberBtn);
+            this.ItemStatsPanel.Controls.Add(this.CaliberIDFinderBox);
+            this.ItemStatsPanel.Controls.Add(this.CaliberIdFinderLabel);
             this.ItemStatsPanel.Controls.Add(this.LinkedGunsBtn);
             this.ItemStatsPanel.Controls.Add(this.LinkedModulesBtn);
             this.ItemStatsPanel.Controls.Add(this.LinkedAmmoBtn);
@@ -332,6 +344,77 @@ namespace UIF
             this.ItemStatsPanel.Name = "ItemStatsPanel";
             this.ItemStatsPanel.Size = new System.Drawing.Size(344, 467);
             this.ItemStatsPanel.TabIndex = 4;
+            // 
+            // CalibersTextBox
+            // 
+            this.CalibersTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.CalibersTextBox.Location = new System.Drawing.Point(10, 542);
+            this.CalibersTextBox.Multiline = true;
+            this.CalibersTextBox.Name = "CalibersTextBox";
+            this.CalibersTextBox.ReadOnly = true;
+            this.CalibersTextBox.Size = new System.Drawing.Size(315, 195);
+            this.CalibersTextBox.TabIndex = 55;
+            this.CalibersTextBox.TabStop = false;
+            // 
+            // SearchGunsCaliberBtn
+            // 
+            this.SearchGunsCaliberBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchGunsCaliberBtn.Location = new System.Drawing.Point(230, 516);
+            this.SearchGunsCaliberBtn.Name = "SearchGunsCaliberBtn";
+            this.SearchGunsCaliberBtn.Size = new System.Drawing.Size(84, 20);
+            this.SearchGunsCaliberBtn.TabIndex = 54;
+            this.SearchGunsCaliberBtn.TabStop = false;
+            this.SearchGunsCaliberBtn.Text = "Guns";
+            this.SearchGunsCaliberBtn.UseVisualStyleBackColor = true;
+            this.SearchGunsCaliberBtn.Click += new System.EventHandler(this.SearchGunsCaliberBtn_Click);
+            // 
+            // SearchModulesCaliberBtn
+            // 
+            this.SearchModulesCaliberBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchModulesCaliberBtn.Location = new System.Drawing.Point(140, 516);
+            this.SearchModulesCaliberBtn.Name = "SearchModulesCaliberBtn";
+            this.SearchModulesCaliberBtn.Size = new System.Drawing.Size(84, 20);
+            this.SearchModulesCaliberBtn.TabIndex = 52;
+            this.SearchModulesCaliberBtn.TabStop = false;
+            this.SearchModulesCaliberBtn.Text = "Modules";
+            this.SearchModulesCaliberBtn.UseVisualStyleBackColor = true;
+            this.SearchModulesCaliberBtn.Click += new System.EventHandler(this.SearchModulesCaliberBtn_Click);
+            // 
+            // SearchAmmoCaliberBtn
+            // 
+            this.SearchAmmoCaliberBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchAmmoCaliberBtn.Location = new System.Drawing.Point(50, 516);
+            this.SearchAmmoCaliberBtn.Name = "SearchAmmoCaliberBtn";
+            this.SearchAmmoCaliberBtn.Size = new System.Drawing.Size(84, 20);
+            this.SearchAmmoCaliberBtn.TabIndex = 53;
+            this.SearchAmmoCaliberBtn.TabStop = false;
+            this.SearchAmmoCaliberBtn.Text = "Ammo";
+            this.SearchAmmoCaliberBtn.UseVisualStyleBackColor = true;
+            this.SearchAmmoCaliberBtn.Click += new System.EventHandler(this.SearchAmmoCaliberBtn_Click);
+            // 
+            // CaliberIDFinderBox
+            // 
+            this.CaliberIDFinderBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CaliberIDFinderBox.Location = new System.Drawing.Point(89, 490);
+            this.CaliberIDFinderBox.Name = "CaliberIDFinderBox";
+            this.CaliberIDFinderBox.Size = new System.Drawing.Size(180, 20);
+            this.CaliberIDFinderBox.TabIndex = 51;
+            this.CaliberIDFinderBox.TabStop = false;
+            // 
+            // CaliberIdFinderLabel
+            // 
+            this.CaliberIdFinderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CaliberIdFinderLabel.AutoSize = true;
+            this.CaliberIdFinderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CaliberIdFinderLabel.Location = new System.Drawing.Point(114, 467);
+            this.CaliberIdFinderLabel.Name = "CaliberIdFinderLabel";
+            this.CaliberIdFinderLabel.Size = new System.Drawing.Size(128, 20);
+            this.CaliberIdFinderLabel.TabIndex = 46;
+            this.CaliberIdFinderLabel.Text = "Caliber ID Finder";
             // 
             // LinkedGunsBtn
             // 
@@ -1101,7 +1184,7 @@ namespace UIF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 635);
+            this.ClientSize = new System.Drawing.Size(734, 632);
             this.Controls.Add(this.SortingPanel);
             this.Controls.Add(this.ItemStatsLabel);
             this.Controls.Add(this.InfoGroupBox);
@@ -1189,7 +1272,6 @@ namespace UIF
         private System.Windows.Forms.TextBox damage;
         private System.Windows.Forms.Label AmmoAmountLabel;
         private System.Windows.Forms.TextBox amount;
-        private System.Windows.Forms.Label LinkedAmmoLabel;
         private System.Windows.Forms.Label PelletsLabel;
         private System.Windows.Forms.TextBox pellets;
         private System.Windows.Forms.Button LinkedAmmoBtn;
@@ -1201,8 +1283,6 @@ namespace UIF
         private System.Windows.Forms.TextBox equipable_movement_speed_multiplier;
         private System.Windows.Forms.TextBox movement_speed_multiplier;
         private System.Windows.Forms.TextBox firerate;
-        private Label LinkedGunsLabel;
-        private Label LinkedModulesLabel;
         private Label ItemStatsLabel;
         private Panel SortingPanel;
         private Button SortByIDBtn;
@@ -1210,5 +1290,14 @@ namespace UIF
         private Button AllNameGuidToClipboard;
         private Button NameGuidToClipboard;
         private Button GuidToClipboard;
+        private Label CaliberIdFinderLabel;
+        private TextBox CaliberIDFinderBox;
+        private Button SearchGunsCaliberBtn;
+        private Button SearchModulesCaliberBtn;
+        private Button SearchAmmoCaliberBtn;
+        private Label LinkedGunsLabel;
+        private Label LinkedModulesLabel;
+        private Label LinkedAmmoLabel;
+        private TextBox CalibersTextBox;
     }
 }

@@ -220,6 +220,38 @@ namespace UIF
                         return value;
 
                     return errReturn;
+                case "CalibersTextBox":
+                    string _b = "Zoom: " + this.GetValue("zoom") + "\r\n";
+                    foreach (string i in this.Keys)
+                    {
+                        if (i.StartsWith("caliber"))
+                        {
+                            _b += i + " " + this.GetValue(i) + "\r\n";
+                        }
+                    }
+                    foreach (string i in this.Keys)
+                    {
+                        if (i.StartsWith("caliber_"))
+                        {
+                            _b += i + " " + this.GetValue(i) + "\r\n";
+                        }
+                    }
+                    foreach (string i in this.Keys)
+                    {
+                        if (i.StartsWith("attachment_caliber_"))
+                        {
+                            _b += i + " " + this.GetValue(i) + "\r\n";
+                        }
+                    }
+
+                    foreach (string i in this.Keys)
+                    {
+                        if (i.StartsWith("magazine_caliber_"))
+                        {
+                            _b += i + " " + this.GetValue(i) + "\r\n";
+                        }
+                    }
+                    return _b;
 
                 default:
                     return value;

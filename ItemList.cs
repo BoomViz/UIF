@@ -389,6 +389,91 @@ namespace UIF
             UpdateItemList();
         }
 
+        private IEnumerable<string> GetAllCalibers(Item item)
+        {
+            var patterns = new List<string>
+                {
+                    @"caliber_\d+",
+                    @"attachment_caliber_\d+",
+                    @"magazine_caliber_\d+",
+                    @"\bcaliber\b",
+                    
+                };
+
+            var calibers = new List<string>();
+
+            foreach (var pattern in patterns)
+            {
+                calibers.AddRange(item
+                    .Where(prop => Regex.IsMatch(prop.Key, pattern))
+                    .Select(prop => prop.Value.ToString()));
+            }
+
+            return calibers.Distinct();
+        }
+
+        public List<Item> SearchForMagazines(List<Item> allItems)
+        {
+            return allItems.Where(item => item.GetValue("type").Equals("Magazine", StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        private void SearchAmmoCaliberBtn_Click(object sender, EventArgs e)
+        {
+            var searchQuery = CaliberIDFinderBox.Text.ToLower();
+            var allItems = Core.ParseAll(Folders.CheckedFolders);
+            var magazineItems = SearchForMagazines(allItems);
+
+            var filteredItems = magazineItems.Where(item =>
+            {
+                var allCalibers = GetAllCalibers(item);
+                return allCalibers.Any(caliber => caliber.ToLower().Equals(searchQuery));
+            }).ToList();
+
+            new ItemList(filteredItems).ShowDialog();
+        }
+
+
+        public List<Item> SearchForModules(List<Item> allItems)
+        {
+            var moduleTypes = new List<string> { "Grip", "Barrel", "Sight", "Tactical" };
+            return allItems.Where(item => moduleTypes.Contains(item.GetValue("type"), StringComparer.OrdinalIgnoreCase)).ToList();
+        }
+
+        private void SearchModulesCaliberBtn_Click(object sender, EventArgs e)
+        {
+            var searchQuery = CaliberIDFinderBox.Text.ToLower();
+            var allItems = Core.ParseAll(Folders.CheckedFolders);
+            var modulesItems = SearchForModules(allItems);
+
+            var filteredItems = modulesItems.Where(item =>
+            {
+                var allCalibers = GetAllCalibers(item);
+                return allCalibers.Any(caliber => caliber.ToLower().Equals(searchQuery));
+            }).ToList();
+
+            new ItemList(filteredItems).ShowDialog();
+        }
+
+        public List<Item> SearchForGuns(List<Item> allItems)
+        {
+            return allItems.Where(item => item.GetValue("type").Equals("Gun", StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        private void SearchGunsCaliberBtn_Click(object sender, EventArgs e)
+        {
+            var searchQuery = CaliberIDFinderBox.Text.ToLower();
+            var allItems = Core.ParseAll(Folders.CheckedFolders);
+            var gunItems = SearchForGuns(allItems);
+
+            var filteredItems = gunItems.Where(item =>
+            {
+                var allCalibers = GetAllCalibers(item);
+                return allCalibers.Any(caliber => caliber.ToLower().Equals(searchQuery));
+            }).ToList();
+
+            new ItemList(filteredItems).ShowDialog();
+        }
+
         private bool isSortedAscending = true;
     }
 }
