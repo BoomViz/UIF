@@ -527,15 +527,23 @@ namespace UIF
             switch (itemType.ToLower())
             {
                 case "gun":
+                    return $"ДМГ Голова: {item.FormatKey("player_skull_damage")}, Тело: {item.FormatKey("player_spine_damage")}, Дальность: {item.FormatKey("range")}";
                 case "melee":
                     return $"ДМГ Голова: {item.FormatKey("player_skull_damage")}, Тело: {item.FormatKey("player_spine_damage")}, Дальность: {item.FormatKey("range")}";
                 case "hat":
-                case "glasses":
                     return $"Защита: {item.FormatKey("armor")}";
+                case "glasses":
+                    string glassesarmorValue = item.GetValue("armor");
+                    return string.IsNullOrEmpty(glassesarmorValue) ? string.Empty : $"Защита: {glassesarmorValue}%";
                 case "pants":
+                    return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
                 case "shirt":
+                    return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
                 case "mask":
+                    string maskarmorValue = item.GetValue("armor");
+                    return string.IsNullOrEmpty(maskarmorValue) ? string.Empty : $"Защита: {maskarmorValue}%";
                 case "backpack":
+                    return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
                 case "vest":
                     return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
                 case "sight":
@@ -543,6 +551,7 @@ namespace UIF
                 case "grip":
                 case "barrel":
                 case "magazine":
+                    return $"Кол-во:{item.FormatKey("amount")}";
                 case "optic":
                 case "food":
                 case "water":
@@ -553,8 +562,6 @@ namespace UIF
                 case "refill":
                 case "cloud":
                 case "map":
-                case "key":
-                case "box":
                 case "arrest_start":
                 case "arrest_end":
                 case "vehicle_repair_tool":
@@ -563,18 +570,39 @@ namespace UIF
                 case "oil_pump":
                     return $"Прочность: {item.FormatKey("health")}";
                 case "housing_planner":
-                    return "Это инструмент.";
                 case "barricade":
+                    return $"Прочность: {item.FormatKey("health")}";
                 case "structure":
                     return $"Прочность: {item.FormatKey("health")}";
                 case "storage":
                     return $"Прочность: {item.FormatKey("health")}, Вместительность: {item.FormatKey("item_capacity")}";
+                case "vehicle":
+                    string useableValue = item.FormatKey("engine")?.ToLower();
+                    string vehicleType;
+
+                    if (useableValue == "helicopter")
+                    {
+                        vehicleType = "Helicopter";
+                    }
+                    else if (useableValue == "plane")
+                    {
+                        vehicleType = "Plane";
+                    }
+                    else if (useableValue == "boat")
+                    {
+                        vehicleType = "Boat";
+                    }
+                    else
+                    {
+                        vehicleType = "Сar";
+                    }
+
+                    return $"Прочность: {item.FormatKey("health")}, Тип: {vehicleType}";
+
                 default:
-                    return "Неизвестный тип предмета.";
+                    return "";
             }
         }
-
-
 
         private bool isSortedAscending = true;
     }

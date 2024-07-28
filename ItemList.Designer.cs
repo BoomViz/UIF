@@ -315,6 +315,7 @@ namespace UIF
             // ItemStatsPanel
             // 
             this.ItemStatsPanel.AutoScroll = true;
+            this.ItemStatsPanel.Controls.Add(this.AllIdNameInfoTableBtn);
             this.ItemStatsPanel.Controls.Add(this.CalibersTextBox);
             this.ItemStatsPanel.Controls.Add(this.SearchGunsCaliberBtn);
             this.ItemStatsPanel.Controls.Add(this.SearchModulesCaliberBtn);
@@ -1157,7 +1158,6 @@ namespace UIF
             // SortingPanel
             // 
             this.SortingPanel.AutoScroll = true;
-            this.SortingPanel.Controls.Add(this.AllIdNameInfoTableBtn);
             this.SortingPanel.Controls.Add(this.SortByNameBtn);
             this.SortingPanel.Controls.Add(this.SortByIDBtn);
             this.SortingPanel.Controls.Add(this.SortByRangeBtn);
@@ -1188,12 +1188,12 @@ namespace UIF
             // 
             // AllIdNameInfoTableBtn
             // 
-            this.AllIdNameInfoTableBtn.Location = new System.Drawing.Point(7, 658);
+            this.AllIdNameInfoTableBtn.Location = new System.Drawing.Point(31, 743);
             this.AllIdNameInfoTableBtn.Name = "AllIdNameInfoTableBtn";
-            this.AllIdNameInfoTableBtn.Size = new System.Drawing.Size(160, 23);
+            this.AllIdNameInfoTableBtn.Size = new System.Drawing.Size(264, 23);
             this.AllIdNameInfoTableBtn.TabIndex = 21;
             this.AllIdNameInfoTableBtn.TabStop = false;
-            this.AllIdNameInfoTableBtn.Text = "Test";
+            this.AllIdNameInfoTableBtn.Text = "Copy as table";
             this.AllIdNameInfoTableBtn.UseVisualStyleBackColor = true;
             this.AllIdNameInfoTableBtn.Click += new System.EventHandler(this.AllIdNameInfoTableBtn_Click);
             // 
