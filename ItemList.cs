@@ -506,27 +506,15 @@ namespace UIF
 
         private void AllIdNameInfoTableBtn_Click(object sender, EventArgs e)
         {
-            string copyStr = string.Empty;
-            copyStr += "ID\tНазвание\tТип\tИнформация о Предмете\n";
+            string copyStr = "ID\tНазвание\tТип\tИнформация о Предмете\n";
 
-            for (int i = 0; i < items.Count; i++)
+            foreach (var item in items)
             {
-                string id = items[i].GetValue("id");
-                string name = items[i].GetValue("name");
-                string type = items[i].GetValue("type");
+                string id = item.GetValue("id");
+                string name = item.GetValue("name");
+                string type = item.GetValue("type");
 
-                string ItemCapacity = item_capacity.Text.Trim();
-                string Armor = armor.Text.Trim();
-                string Health = health.Text.Trim();
-                string PlayerSkullDamage = player_skull_damage.Text.Trim();
-                string PlayerSpineDamage = player_spine_damage.Text.Trim();
-                string StructureDamage = structure_damage.Text.Trim();
-                string Range = range.Text.Trim();
-                string Engine = engine.Text.Trim();
-                string Amount = amount.Text.Trim();
-                string Pellets = pellets.Text.Trim();
-
-                string itemInfo = GetItemInfoByType(type, ItemCapacity, Armor, Health, PlayerSkullDamage, PlayerSpineDamage, StructureDamage, Range, Engine, Amount, Pellets);
+                string itemInfo = GetItemInfoByType(item, type);
 
                 copyStr += $"{id}\t{name}\t{type}\t{itemInfo}\n";
             }
@@ -534,28 +522,22 @@ namespace UIF
             Clipboard.SetText(copyStr);
         }
 
-        private string GetItemInfoByType(string itemType, string ItemCapacity, string Armor, string Health, string PlayerSkullDamage, string PlayerSpineDamage, string StructureDamage, string Range, string Engine, string Amount, string Pellets)
+        private string GetItemInfoByType(Item item, string itemType)
         {
             switch (itemType.ToLower())
             {
                 case "gun":
-                    return $"ДМГ Голова: {PlayerSkullDamage}, Тело: {PlayerSpineDamage}, Дальность: {Range}";
                 case "melee":
-                    return $"ДМГ Голова: {PlayerSkullDamage}, Тело: {PlayerSpineDamage}, Дальность: {Range}";
+                    return $"ДМГ Голова: {item.FormatKey("player_skull_damage")}, Тело: {item.FormatKey("player_spine_damage")}, Дальность: {item.FormatKey("range")}";
                 case "hat":
-                    return $"Защита: {Armor}";
-                case "pants":
-                    return $"Защита: {Armor}, Вместительность: {ItemCapacity}";
-                case "shirt":
-                    return $"Защита: {Armor}, Вместительность: {ItemCapacity}";
-                case "mask":
-                    return $"Защита: {Armor}, Вместительность: {ItemCapacity}";
-                case "backpack":
-                    return $"Вместительность: {ItemCapacity}";
-                case "vest":
-                    return $"Защита: {Armor}, Вместительность: {ItemCapacity}";
                 case "glasses":
-                    return $"Защита: {Armor}";
+                    return $"Защита: {item.FormatKey("armor")}";
+                case "pants":
+                case "shirt":
+                case "mask":
+                case "backpack":
+                case "vest":
+                    return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
                 case "sight":
                 case "tactical":
                 case "grip":
@@ -579,18 +561,19 @@ namespace UIF
                 case "tire":
                 case "compass":
                 case "oil_pump":
-                    return $"Прочность: {Health}";
+                    return $"Прочность: {item.FormatKey("health")}";
                 case "housing_planner":
-                    return $"Это инструмент.";
+                    return "Это инструмент.";
                 case "barricade":
                 case "structure":
-                    return $"Прочность: {Health}";
+                    return $"Прочность: {item.FormatKey("health")}";
                 case "storage":
-                    return $"Прочность: {Health}, Вместительность: {ItemCapacity}";
+                    return $"Прочность: {item.FormatKey("health")}, Вместительность: {item.FormatKey("item_capacity")}";
                 default:
                     return "Неизвестный тип предмета.";
             }
         }
+
 
 
         private bool isSortedAscending = true;
