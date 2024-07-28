@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllIdToClipboard" xml:space="preserve">
+    <value>A ID</value>
+  </data>
   <data name="AllNameGuidToClipboard" xml:space="preserve">
     <value>All Н/GUID</value>
   </data>
   <data name="AllNameIdToClipboard" xml:space="preserve">
     <value>Скопировать все Названия/ID</value>
+  </data>
+  <data name="AllNameToClipboard" xml:space="preserve">
+    <value>A Name</value>
   </data>
   <data name="AmmoAmountLabel" xml:space="preserve">
     <value>Количество патрон:</value>

@@ -474,6 +474,128 @@ namespace UIF
             new ItemList(filteredItems).ShowDialog();
         }
 
+        private void AllIdToClipboard_Click(object sender, EventArgs e)
+        {
+            string copyStr = string.Empty;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                copyStr += (
+                    items[i].GetValue("id")
+                )
+                .Trim() + (i < items.Count - 1 ? "\n" : string.Empty);
+            }
+
+            Clipboard.SetText(copyStr);
+        }
+
+        private void AllNameToClipboard_Click(object sender, EventArgs e)
+        {
+            string copyStr = string.Empty;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                copyStr += (
+                    items[i].GetValue("name")
+                )
+                .Trim() + (i < items.Count - 1 ? "\n" : string.Empty);
+            }
+
+            Clipboard.SetText(copyStr);
+        }
+
+        private void AllIdNameInfoTableBtn_Click(object sender, EventArgs e)
+        {
+            string copyStr = string.Empty;
+            copyStr += "ID\tНазвание\tТип\tИнформация о Предмете\n";
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                string id = items[i].GetValue("id");
+                string name = items[i].GetValue("name");
+                string type = items[i].GetValue("type");
+
+                string ItemCapacity = item_capacity.Text.Trim();
+                string Armor = armor.Text.Trim();
+                string Health = health.Text.Trim();
+                string PlayerSkullDamage = player_skull_damage.Text.Trim();
+                string PlayerSpineDamage = player_spine_damage.Text.Trim();
+                string StructureDamage = structure_damage.Text.Trim();
+                string Range = range.Text.Trim();
+                string Engine = engine.Text.Trim();
+                string Amount = amount.Text.Trim();
+                string Pellets = pellets.Text.Trim();
+
+                // Временное добавление значений полей в copyStr для отладки
+                copyStr += $"ID: {id}, Name: {name}, Type: {type}, PlayerSkullDamage: {PlayerSkullDamage}, PlayerSpineDamage: {PlayerSpineDamage}, Range: {Range}\n";
+
+                string itemInfo = GetItemInfoByType(type, ItemCapacity, Armor, Health, PlayerSkullDamage, PlayerSpineDamage, StructureDamage, Range, Engine, Amount, Pellets);
+
+                copyStr += $"{id}\t{name}\t{type}\t{itemInfo}\n";
+            }
+
+            Clipboard.SetText(copyStr);
+        }
+
+        private string GetItemInfoByType(string itemType, string ItemCapacity, string Armor, string Health, string PlayerSkullDamage, string PlayerSpineDamage, string StructureDamage, string Range, string Engine, string Amount, string Pellets)
+        {
+            switch (itemType.ToLower())
+            {
+                case "gun":
+                    return $"ДМГ Голова: {PlayerSkullDamage}, Тело: {PlayerSpineDamage}, Дальность: {Range}";
+                case "melee":
+                    return $"ДМГ Голова: {PlayerSkullDamage}, Тело: {PlayerSpineDamage}, Дальность: {Range}";
+                case "hat":
+                    return $"Защита: {Armor}";
+                case "pants":
+                    return $"Защита: {Armor}, Вместительность: {ItemCapacity}";
+                case "shirt":
+                    return $"Защита: {Armor}, Вместительность: {ItemCapacity}";
+                case "mask":
+                    return $"Защита: {Armor}, Вместительность: {ItemCapacity}";
+                case "backpack":
+                    return $"Вместительность: {ItemCapacity}";
+                case "vest":
+                    return $"Защита: {Armor}, Вместительность: {ItemCapacity}";
+                case "glasses":
+                    return $"Защита: {Armor}";
+                case "sight":
+                case "tactical":
+                case "grip":
+                case "barrel":
+                case "magazine":
+                case "optic":
+                case "food":
+                case "water":
+                case "medical":
+                case "fuel":
+                case "tool":
+                case "fisher":
+                case "refill":
+                case "cloud":
+                case "map":
+                case "key":
+                case "box":
+                case "arrest_start":
+                case "arrest_end":
+                case "vehicle_repair_tool":
+                case "tire":
+                case "compass":
+                case "oil_pump":
+                    return $"Прочность: {Health}";
+                case "housing_planner":
+                    return $"Это инструмент.";
+                case "barricade":
+                case "structure":
+                    return $"Прочность: {Health}";
+                case "storage":
+                    return $"Прочность: {Health}, Вместительность: {ItemCapacity}";
+                default:
+                    return "Неизвестный тип предмета.";
+            }
+        }
+
+
         private bool isSortedAscending = true;
     }
 }
