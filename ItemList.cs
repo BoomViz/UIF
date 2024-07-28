@@ -526,9 +526,6 @@ namespace UIF
                 string Amount = amount.Text.Trim();
                 string Pellets = pellets.Text.Trim();
 
-                // Временное добавление значений полей в copyStr для отладки
-                copyStr += $"ID: {id}, Name: {name}, Type: {type}, PlayerSkullDamage: {PlayerSkullDamage}, PlayerSpineDamage: {PlayerSpineDamage}, Range: {Range}\n";
-
                 string itemInfo = GetItemInfoByType(type, ItemCapacity, Armor, Health, PlayerSkullDamage, PlayerSpineDamage, StructureDamage, Range, Engine, Amount, Pellets);
 
                 copyStr += $"{id}\t{name}\t{type}\t{itemInfo}\n";
