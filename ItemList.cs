@@ -533,43 +533,61 @@ namespace UIF
                 case "hat":
                     return $"Защита: {item.FormatKey("armor")}";
                 case "glasses":
-                    string glassesarmorValue = item.GetValue("armor");
-                    return string.IsNullOrEmpty(glassesarmorValue) ? string.Empty : $"Защита: {glassesarmorValue}%";
+                    return $"N/A";
                 case "pants":
                     return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
                 case "shirt":
                     return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
                 case "mask":
-                    string maskarmorValue = item.GetValue("armor");
-                    return string.IsNullOrEmpty(maskarmorValue) ? string.Empty : $"Защита: {maskarmorValue}%";
+                    return $"N/A";
                 case "backpack":
-                    return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
+                    return $"Вместительность: {item.FormatKey("item_capacity")}";
                 case "vest":
                     return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
                 case "sight":
+                    return $"N/A";
                 case "tactical":
+                    return $"N/A";
                 case "grip":
+                    return $"N/A";
                 case "barrel":
+                    return $"N/A";
                 case "magazine":
                     return $"Кол-во:{item.FormatKey("amount")}";
                 case "optic":
+                    return $"N/A";
                 case "food":
+                    return $"N/A";
                 case "water":
+                    return $"N/A";
                 case "medical":
+                    return $"N/A";
                 case "fuel":
+                    return $"N/A";
                 case "tool":
+                    return $"N/A";
                 case "fisher":
+                    return $"N/A";
                 case "refill":
+                    return $"N/A";
                 case "cloud":
+                    return $"N/A";
                 case "map":
+                    return $"N/A";
                 case "arrest_start":
+                    return $"N/A";
                 case "arrest_end":
+                    return $"N/A";
                 case "vehicle_repair_tool":
+                    return $"N/A";
                 case "tire":
+                    return $"N/A";
                 case "compass":
+                    return $"N/A";
                 case "oil_pump":
                     return $"Прочность: {item.FormatKey("health")}";
                 case "housing_planner":
+                    return $"N/A";
                 case "barricade":
                     return $"Прочность: {item.FormatKey("health")}";
                 case "structure":
@@ -600,7 +618,7 @@ namespace UIF
                     return $"Прочность: {item.FormatKey("health")}, Тип: {vehicleType}";
 
                 default:
-                    return "";
+                    return "N/A";
             }
         }
 
