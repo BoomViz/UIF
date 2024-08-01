@@ -48,6 +48,7 @@ namespace UIF
             this.NameLabel = new System.Windows.Forms.Label();
             this.IdToClipboard = new System.Windows.Forms.Button();
             this.ItemStatsPanel = new System.Windows.Forms.Panel();
+            this.AllIdNameInfoTableBtn = new System.Windows.Forms.Button();
             this.CalibersTextBox = new System.Windows.Forms.TextBox();
             this.SearchGunsCaliberBtn = new System.Windows.Forms.Button();
             this.SearchModulesCaliberBtn = new System.Windows.Forms.Button();
@@ -122,7 +123,7 @@ namespace UIF
             this.MixBtn = new System.Windows.Forms.Button();
             this.ItemStatsLabel = new System.Windows.Forms.Label();
             this.SortingPanel = new System.Windows.Forms.Panel();
-            this.AllIdNameInfoTableBtn = new System.Windows.Forms.Button();
+            this.SortByTypeBtn = new System.Windows.Forms.Button();
             this.SortByNameBtn = new System.Windows.Forms.Button();
             this.SortByIDBtn = new System.Windows.Forms.Button();
             this.InfoGroupBox.SuspendLayout();
@@ -372,6 +373,17 @@ namespace UIF
             this.ItemStatsPanel.Name = "ItemStatsPanel";
             this.ItemStatsPanel.Size = new System.Drawing.Size(344, 467);
             this.ItemStatsPanel.TabIndex = 4;
+            // 
+            // AllIdNameInfoTableBtn
+            // 
+            this.AllIdNameInfoTableBtn.Location = new System.Drawing.Point(31, 743);
+            this.AllIdNameInfoTableBtn.Name = "AllIdNameInfoTableBtn";
+            this.AllIdNameInfoTableBtn.Size = new System.Drawing.Size(264, 23);
+            this.AllIdNameInfoTableBtn.TabIndex = 21;
+            this.AllIdNameInfoTableBtn.TabStop = false;
+            this.AllIdNameInfoTableBtn.Text = "Copy as table";
+            this.AllIdNameInfoTableBtn.UseVisualStyleBackColor = true;
+            this.AllIdNameInfoTableBtn.Click += new System.EventHandler(this.AllIdNameInfoTableBtn_Click);
             // 
             // CalibersTextBox
             // 
@@ -1158,6 +1170,7 @@ namespace UIF
             // SortingPanel
             // 
             this.SortingPanel.AutoScroll = true;
+            this.SortingPanel.Controls.Add(this.SortByTypeBtn);
             this.SortingPanel.Controls.Add(this.SortByNameBtn);
             this.SortingPanel.Controls.Add(this.SortByIDBtn);
             this.SortingPanel.Controls.Add(this.SortByRangeBtn);
@@ -1186,16 +1199,16 @@ namespace UIF
             this.SortingPanel.TabIndex = 9;
             this.SortingPanel.Text = "Sorting";
             // 
-            // AllIdNameInfoTableBtn
+            // SortByTypeBtn
             // 
-            this.AllIdNameInfoTableBtn.Location = new System.Drawing.Point(31, 743);
-            this.AllIdNameInfoTableBtn.Name = "AllIdNameInfoTableBtn";
-            this.AllIdNameInfoTableBtn.Size = new System.Drawing.Size(264, 23);
-            this.AllIdNameInfoTableBtn.TabIndex = 21;
-            this.AllIdNameInfoTableBtn.TabStop = false;
-            this.AllIdNameInfoTableBtn.Text = "Copy as table";
-            this.AllIdNameInfoTableBtn.UseVisualStyleBackColor = true;
-            this.AllIdNameInfoTableBtn.Click += new System.EventHandler(this.AllIdNameInfoTableBtn_Click);
+            this.SortByTypeBtn.Location = new System.Drawing.Point(7, 658);
+            this.SortByTypeBtn.Name = "SortByTypeBtn";
+            this.SortByTypeBtn.Size = new System.Drawing.Size(160, 23);
+            this.SortByTypeBtn.TabIndex = 21;
+            this.SortByTypeBtn.TabStop = false;
+            this.SortByTypeBtn.Text = "Type";
+            this.SortByTypeBtn.UseVisualStyleBackColor = true;
+            this.SortByTypeBtn.Click += new System.EventHandler(this.SortByTypeBtn_Click);
             // 
             // SortByNameBtn
             // 
@@ -1341,5 +1354,6 @@ namespace UIF
         private Button AllIdToClipboard;
         private Button AllNameToClipboard;
         private Button AllIdNameInfoTableBtn;
+        private Button SortByTypeBtn;
     }
 }

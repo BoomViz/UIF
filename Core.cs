@@ -495,22 +495,50 @@ namespace UIF
                 IEnumerable<string> dirs = Directory.EnumerateDirectories(folderPath, "*", SearchOption.AllDirectories);
                 foreach (string dir in dirs)
                 {
-                    if (File.Exists(dir + "\\English.dat"))
+                    string datFilePath = Path.Combine(dir, "English.dat");
+                    string itemName = null;
+
+                    if (!File.Exists(datFilePath))
                     {
-                        Item item = ParseDir(dir, null);
-                        if (item != null && item.GetValue("id", null) != null)
-                            items.Add(item);
+                        string[] datFiles = Directory.GetFiles(dir, "*.dat");
+                        if (datFiles.Length > 0)
+                        {
+                            datFilePath = datFiles[0];
+                            itemName = Path.GetFileNameWithoutExtension(datFiles[0]);
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+
+                    Item item = ParseDir(dir, null);
+
+                    if (itemName != null && item != null && !item.ContainsKey("name"))
+                    {
+                        item.Add("name", itemName);
+                    }
+
+                    if (item != null && item.GetValue("id", null) != null)
+                    {
+                        items.Add(item);
                     }
                 }
 
                 if (enableProcessors)
+                {
                     ItemsPreprocessor(ref items);
+                }
 
                 if (filter != null)
+                {
                     ItemsFilter(filter, ref items);
+                }
 
                 if (enableProcessors)
+                {
                     ItemsPostprocessor(ref items);
+                }
 
                 return items;
             }
@@ -522,7 +550,9 @@ namespace UIF
                     foreach (Item item in loadedItems)
                     {
                         if (filter(item))
+                        {
                             items.Add(item);
+                        }
                     }
 
                     return items;
@@ -537,17 +567,27 @@ namespace UIF
         // Don't forget that this method doesn't call `ItemsPreprocessor` and `ItemsPostprocessor` methods
         public static Item ParseDir(string dir, Func<Item, bool> filter)
         {
-            if (!File.Exists(dir + "\\English.dat"))
+            // Получаем список всех .dat файлов в директории
+            List<string> files = Directory.EnumerateFiles(dir, "*.dat").ToList();
+
+            // Если нет .dat файлов, возвращаем null
+            if (files.Count == 0)
                 return null;
 
             Item item = new Item();
 
-            List<string> files = Directory.EnumerateFiles(dir, "*.dat").ToList();
             foreach (string file in files)
             {
                 List<string> fileLines;
-                try { fileLines = File.ReadAllText(file).Split('\n').ToList(); } catch { return null; }
-                bool bEnglishDat = file.ToLower().EndsWith("english.dat");
+                try
+                {
+                    fileLines = File.ReadAllText(file).Split('\n').ToList();
+                }
+                catch
+                {
+                    return null;
+                }
+
                 foreach (string line in fileLines)
                 {
                     if (!string.IsNullOrWhiteSpace(line))
@@ -591,5 +631,6 @@ namespace UIF
             else
                 return null;
         }
+
     }
 }

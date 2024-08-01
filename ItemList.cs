@@ -531,19 +531,19 @@ namespace UIF
                 case "melee":
                     return $"ДМГ Голова: {item.FormatKey("player_skull_damage")}, Тело: {item.FormatKey("player_spine_damage")}, Дальность: {item.FormatKey("range")}";
                 case "hat":
-                    return $"Защита: {item.FormatKey("armor")}";
+                    return $"Защита: {item.FormatKey("armor")}%";
                 case "glasses":
                     return $"N/A";
                 case "pants":
-                    return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
+                    return $"Защита: {item.FormatKey("armor")}%, Вместительность: {item.FormatKey("item_capacity")}";
                 case "shirt":
-                    return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
+                    return $"Защита: {item.FormatKey("armor")}%, Вместительность: {item.FormatKey("item_capacity")}";
                 case "mask":
                     return $"N/A";
                 case "backpack":
                     return $"Вместительность: {item.FormatKey("item_capacity")}";
                 case "vest":
-                    return $"Защита: {item.FormatKey("armor")}, Вместительность: {item.FormatKey("item_capacity")}";
+                    return $"Защита: {item.FormatKey("armor")}%, Вместительность: {item.FormatKey("item_capacity")}";
                 case "sight":
                     return $"N/A";
                 case "tactical":
@@ -560,6 +560,10 @@ namespace UIF
                     return $"N/A";
                 case "water":
                     return $"N/A";
+                case "charge":
+                    return $"Прочность: {item.FormatKey("health")}";
+                case "trap":
+                    return $"Прочность: {item.FormatKey("health")}";
                 case "medical":
                     return $"N/A";
                 case "fuel":
@@ -620,6 +624,29 @@ namespace UIF
                 default:
                     return "N/A";
             }
+        }
+
+        private void SortByTypeBtn_Click(object sender, EventArgs e)
+        {
+            Regex regex = new Regex(@"\d+");
+
+            items.Sort((a, b) =>
+            {
+                var matchA = regex.Match(a.GetValue("type", ""));
+                int numberA = matchA.Success ? int.Parse(matchA.Value) : int.MaxValue;
+
+                var matchB = regex.Match(b.GetValue("type", ""));
+                int numberB = matchB.Success ? int.Parse(matchB.Value) : int.MaxValue;
+
+                int numberComparison = isSortedAscending ? numberA.CompareTo(numberB) : numberB.CompareTo(numberA);
+                if (numberComparison != 0)
+                    return numberComparison;
+
+                return isSortedAscending ? String.Compare(a.GetValue("type", ""), b.GetValue("type", "")) : String.Compare(b.GetValue("type", ""), a.GetValue("type", ""));
+            });
+
+            isSortedAscending = !isSortedAscending; // Переключаем флаг сортировки
+            UpdateItemList();
         }
 
         private bool isSortedAscending = true;
