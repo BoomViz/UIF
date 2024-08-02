@@ -316,19 +316,33 @@ namespace UIF
             UpdateItemList();
         }
 
+        private bool isDescendingEMSM = false;
+        private bool isDescendingMSM = false;
+
         private void SortByEMSMBtn_Click(object sender, EventArgs e)
         {
-            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.EMSM));
+            items.Sort((a, b) =>
+                isDescendingEMSM ?
+                a.CompareTo(b, Core.CompareModes.EMSM) :
+                b.CompareTo(a, Core.CompareModes.EMSM)
+            );
 
+            isDescendingEMSM = !isDescendingEMSM;
             UpdateItemList();
         }
 
         private void SortByMSMBtn_Click(object sender, EventArgs e)
         {
-            items.Sort((a, b) => a.CompareTo(b, Core.CompareModes.MSM));
+            items.Sort((a, b) =>
+                isDescendingMSM ?
+                a.CompareTo(b, Core.CompareModes.MSM) :
+                b.CompareTo(a, Core.CompareModes.MSM)
+            );
 
+            isDescendingMSM = !isDescendingMSM;
             UpdateItemList();
         }
+
 
         private void SortByRangeBtn_Click(object sender, EventArgs e)
         {

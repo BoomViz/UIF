@@ -335,11 +335,11 @@ namespace UIF
                     return (recoil_y_type_a == "Grip" || recoil_y_type_a == "Barrel" || recoil_y_type_a == "Tactical" ? a.GetValue("recoil_y", "1").ToFloat() : 1)
                         .CompareTo(recoil_y_type_val == "Grip" || recoil_y_type_val == "Barrel" || recoil_y_type_val == "Tactical" ? val.GetValue("recoil_y", "1").ToFloat() : 1);
                 case CompareModes.EMSM:
-                    return (a.GetValue("type") == "" ? a.GetValue("equipable_movement_speed_multiplier", "1").ToFloat() : 1)
-                        .CompareTo(val.GetValue("type") == "" ? val.GetValue("equipable_movement_speed_multiplier", "1").ToFloat() : 1);
+                    return a.GetValue("equipable_movement_speed_multiplier", "1").ToFloat()
+                        .CompareTo(val.GetValue("equipable_movement_speed_multiplier", "1").ToFloat());
                 case CompareModes.MSM:
-                    return (a.GetValue("type") == "" ? a.GetValue("movement_speed_multiplier", "1").ToFloat() : 1)
-                        .CompareTo(val.GetValue("type") == "" ? val.GetValue("movement_speed_multiplier", "1").ToFloat() : 1);
+                    return a.GetValue("movement_speed_multiplier", "1").ToFloat()
+                        .CompareTo(val.GetValue("movement_speed_multiplier", "1").ToFloat());
                 case CompareModes.BarrelDamage:
                     return (a.GetValue("type") == "Barrel" ? a.GetValue("damage", "0").ToFloat() : 0)
                         .CompareTo(val.GetValue("type") == "Barrel" ? val.GetValue("damage", "0").ToFloat() : 0);
